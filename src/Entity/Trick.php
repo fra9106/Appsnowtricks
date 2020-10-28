@@ -2,15 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\TrickRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Service\Slug;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\TrickRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=TrickRepository::class)
+ * @ORM\HasLifecycleCallbacks
  * @UniqueEntity(
  * fields={"name"},
  * message = "Le nom de cette figure déjà utilisé, veuillez taper une autre nom de figure !")
@@ -136,15 +138,20 @@ class Trick
         return $this;
     }
 
-    public function slugify($string, $empty = '', $delimiter = '-') 
-    {   
-        $sluggy = iconv('UTF-8', 'us-ascii//TRANSLIT', $string);
-        $sluggy = preg_replace("#[^\w/|+ -]#", $empty, $sluggy);
-        $sluggy = strtolower($sluggy);
-        $sluggy = preg_replace("#[\/_|+ -]+#", $delimiter, $sluggy);
-        $sluggy = trim($sluggy, $delimiter);
-
-        return $sluggy;
+    /**
+     * slug initialize
+     *
+     * @ORM\prePersist
+     * @ORM\preUpdate
+     * 
+     * @return void
+     */
+    public function initializeSlug()
+    {
+        if(empty($this->slug)) {
+            $slugify = new Slug();
+            $this->slug = $slugify->slugify($this->title);
+        }
     }
 
     public function getSlug(): ?string
@@ -154,7 +161,8 @@ class Trick
     
     public function setSlug($slug): self
     {
-        $this->slug = $this->slugify($slug);
+        $slugify = new Slug();
+        $this->slug = $slugify->slugify($slug);
 
         return $this;
     }
