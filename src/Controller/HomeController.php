@@ -12,10 +12,15 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="homepage")
      */
-    public function home()
+    public function home(TrickRepository $repo)
     {
+        $images = new Image;
+        $tricks = $repo->findBy([],['creation_date' => 'DESC']);
         return $this->render('home/home.html.twig', [
-            
+            'controller_name' => 'HomeController',
+            'tricks' => $tricks,
+            'images' => $images
         ]);
+        
     }
 }
