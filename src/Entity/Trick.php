@@ -74,7 +74,7 @@ class Trick
     private $update_date;
 
     /**
-     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="trick", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="trick", cascade = {"persist"}, orphanRemoval=true)
      */
     private $images;
 
@@ -141,8 +141,8 @@ class Trick
     /**
      * slug initialize
      *
-     * @ORM\prePersist
-     * @ORM\preUpdate
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
      * 
      * @return void
      */
