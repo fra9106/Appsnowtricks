@@ -142,77 +142,77 @@ class AppFixtures extends Fixture
 
         $image1 = new Image;
         $image1
-            ->setFile('backside-180.jpg');
+            ->setPath('backside-180.jpg');
             $manager->persist($image1);
 
         $image2 = new Image;
         $image2
-            ->setFile('12.jpg');
+            ->setPath('12.jpg');
             $manager->persist($image2);
 
         $image3 = new Image;
         $image3
-            ->setFile('backside-air.png');
+            ->setPath('backside-air.png');
             $manager->persist($image3);
 
         $image4 = new Image;
         $image4
-            ->setFile('flip.jpg');
+            ->setPath('flip.jpg');
             $manager->persist($image4);
 
         $image5 = new Image;
         $image5
-            ->setFile('frontside-360.jpg');
+            ->setPath('frontside-360.jpg');
             $manager->persist($image5);
 
         $image6 = new Image;
         $image6
-            ->setFile('method.jpg');
+            ->setPath('method.jpg');
             $manager->persist($image6);
 
         $image7 = new Image;
         $image7
-            ->setFile('Mjc3MDk1MQ.jpeg');
+            ->setPath('Mjc3MDk1MQ.jpeg');
             $manager->persist($image7);
 
         $image8 = new Image;
         $image8
-            ->setFile('saut.jpg');
+            ->setPath('saut.jpg');
             $manager->persist($image8);
 
         $image9 = new Image;
         $image9
-            ->setFile('mute.jpg');
+            ->setPath('mute.jpg');
             $manager->persist($image9);
 
         $image10 = new Image;
         $image10
-            ->setFile('mctwist.jpg');
+            ->setPath('mctwist.jpg');
             $manager->persist($image10);
 
         $image11 = new Image;
         $image11
-            ->setFile('Picswiss_VD-44-23.jpg');
+            ->setPath('Picswiss_VD-44-23.jpg');
             $manager->persist($image11);
 
         $image12 = new Image;
         $image12
-            ->setFile('tail.jpg');
+            ->setPath('tail.jpg');
             $manager->persist($image12);
 
         $image13 = new Image;
         $image13
-            ->setFile('stalefish.jpg');
+            ->setPath('stalefish.jpg');
             $manager->persist($image13);
 
         $image14 = new Image;
         $image14
-            ->setFile('ollie.jpg');
+            ->setPath('ollie.jpg');
             $manager->persist($image14);
 
         $image15 = new Image;
         $image15
-            ->setFile('snowboarding.jpg');
+            ->setPath('snowboarding.jpg');
             $manager->persist($image15);
                 
             $trick = new trick();

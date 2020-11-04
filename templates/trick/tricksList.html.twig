@@ -2,6 +2,11 @@
     <div class="col-12 mb-4">
         <h1 class="text-center">Tricks</h1>
     </div>
+    {% for message in app.flashes('message') %}
+    <div class="alert alert-success text-center" role="alert">
+        {{ message }}
+    </div>
+{% endfor %}
     {% for trick in tricks %}
         <div class="col-lg-2 col-sm-12 col-md-4 my-3 m-4 tricks-more ">
             <div class="w-100 mx-auto p-2 row border border-lightgrey">
@@ -14,7 +19,7 @@
                     <div>
                         {% if trick is not empty %}
                         {% for image in trick.images | slice(0,1) %}
-                        <img class="h-100 w-100" src="{{ asset('assets/uploads/' ~ image.file) }}" alt="{{ trick.name }}">
+                        <img class="h-100 w-100" src="{{ asset('assets/uploads/images/' ~ image.path) }}" alt="{{ trick.name }}">
                         {% else %}{{dump('coucou')}}
                         <img class="h-100 w-100" src="{{ asset('assets/img_default/logosnow.png') }}" alt="logoSnow">
                         {% endfor %}
