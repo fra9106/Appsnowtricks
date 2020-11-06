@@ -18,9 +18,11 @@
                 <div class="col-12 p-0" >
                     <div>
                         {% if trick is not empty %}
-                        {% for image in trick.images | slice(0,1) %}
+                        {% for image in trick.images %}
+                        {% if loop.first %}
                         <img class="h-100 w-100" src="{{ asset('assets/uploads/images/' ~ image.path) }}" alt="{{ trick.name }}">
-                        {% else %}{{dump('coucou')}}
+                        {% endif %}
+                        {% else %}
                         <img class="h-100 w-100" src="{{ asset('assets/img_default/logosnow.png') }}" alt="logoSnow">
                         {% endfor %}
                         {% endif %}
