@@ -11,7 +11,7 @@
         <div class="col-lg-2 col-sm-12 col-md-4 my-3 m-4 tricks-more ">
             <div class="w-100 mx-auto p-2 row border border-lightgrey">
                 {% if app.user %}
-                <a href="#{#{{ path('comment_new', {'slug': trick.slug}) }}#}">
+                <a href="{{ path('comment_new', {'slug': trick.slug}) }}">
                 {% else %}
                 <a href="{{ path('trick_show', {'slug': trick.slug}) }}">
                 {% endif %}
