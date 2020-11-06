@@ -30,8 +30,8 @@
                     <div class="d-flex col-12 p-3 name-trick">
                         <div class="d-flex text-align-inline">{{ trick.name }}
                             {% if is_granted('edit', trick) %}
-                            <a class="px-2" href="#{#{{ path('trick_edit', {'slug': trick.slug}) }}#}"><i class="fas fa-pen "></i></a>
-                            {#{{ include('trick/_delete_form.html.twig') }}#}
+                            <a class="px-2" href="{{ path('trick_edit', {'slug': trick.slug}) }}"><i class="fas fa-pen "></i></a>
+                            {{ include('trick/_delete_form.html.twig') }}
                             {% endif %}
                         </div>
                     </div>
