@@ -108,4 +108,44 @@ class TrickController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+    * @Route("/{slug}/newcomment/{page<\d+>?1}", name="comment_new", methods={"GET","POST"})
+    */
+    public function newComment(Request $request, Trick $trick, EntityManagerInterface $manager,Paginator $paginator, $page) : response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        $comment = new Comment();
+        $comment->setUser($this->getUser());
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $this->addFlash('message', 'Comment added!');
+                $comment->setCreationDate(new \DateTime())
+                        ->setTrick($trick);
+                $manager->persist($comment);
+                $manager->flush();
+                        
+                return $this->redirectToRoute('trick_show', [
+                        'id' => $trick->getId(),
+                        'slug' => $trick->getSlug(),
+                        ]);
+                }
+            $paginator
+            ->setEntityClass(Comment::class)
+            ->setOrder(['creation_date' => 'DESC'])
+            ->setPage($page)
+            ->setAttribut(['trick' => $trick]);
+                           
+                            
+                    
+            return $this->render('trick/show.html.twig', [
+            'trick' => $trick,
+            'slug' => $trick->getSlug(),
+            'paginator' => $paginator,
+            'form' => $form->createView(),
+            ]);
+        }
+
+    
 }
