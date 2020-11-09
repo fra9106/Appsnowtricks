@@ -13,7 +13,7 @@ window.onload = () => {
     for(image of images){
         image.addEventListener("click", function(e){
             e.preventDefault()
-            if(confirm("Do you want to delete this picture ?")){
+            if(confirm("Do you want to delete this picture!! ?")){
             this.parentElement.remove();
             }
         })

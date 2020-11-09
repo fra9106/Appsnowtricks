@@ -11,12 +11,10 @@
             {% for image in trick.images %}
             {% if loop.first %}
                 <img class="image-trick rounded" src="{{ asset('assets/uploads/images/' ~ image.path) }}" alt="Image" height="100"width="150" >
-                
-                {% endif %}
-                {% endfor %}
-                {% endif %}
-                
-                <div class="container text-center">
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            <div class="container text-center">
                     <div class="col-sm-12 mb-4 d-flex text-align-inline justify-content-center">
                         {% for image in trick.images %}
                         <div class="align-items-center d-flex text-align-inline justify-content-center my-4">
@@ -62,19 +60,9 @@
             </div>
         {% endblock %}
         {% block _trick_images_entry_widget %}
-        <div class="form-group" id="block_{{id}}">
-            <div class="row">
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col">
-                            {{ form_widget(form.file)}}
-                        </div>
-                    </div>	
-                </div>
-                <div class="col-2">
-                    <button type="button" data-action="delete" data-target="#block_{{id}}" class="btn btn-danger fas fa-trash-alt"></button>
-                </div>
-            </div>
+        <div id="block_{{id}}">
+            {{ form_widget(form.file)}}
+            <button type="button" data-action="delete" data-target="#block_{{id}}" class="btn btn-danger fas fa-trash-alt"></button>
         </div>
         {% endblock %}
         {% block _trick_videos_row %}
@@ -83,7 +71,7 @@
             <button type="button" class="btn btn-primary btn-add-videos" id="add_videos">Add video</button><br><br>
         {% endblock %}
         {% block _trick_videos_entry_widget %}
-        <div class="form-group" id="block_{{id}}">
+        <div id="block_{{id}}">
             <div class="row">
                 <div class="col-10">
                     <div class="row">

@@ -71,7 +71,7 @@ class TrickController extends AbstractController
      */
     public function new(Request $request, FileUploader $fileUploader): Response
     {
-        //$this->denyAccessUnlessGranted('ROLE_USER');
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $trick = new Trick();
         $trick->setUser($this->getUser());
         $trick->getSlug('name');
@@ -81,10 +81,10 @@ class TrickController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->addFlash('message', 'Trick added!');
+            
             /** @var UploadedFile $uploadedFile */
             $images = $form['images']->getData();
-
+           
             foreach ($images as $image) {
                 $uploadedFile = $image->getFile();
                 if ($uploadedFile) {
@@ -97,11 +97,11 @@ class TrickController extends AbstractController
 
             foreach ($trick->getVideos() as $video) {
                 $video->setTrick($trick);
-                $this->manager->persist($video);
+                $this->manager->persist($video);dd($video);
             }
             $this->manager->persist($trick);
             $this->manager->flush();
-
+            $this->addFlash('message', 'Trick added!');
             return $this->redirectToRoute('trick_index');
         }
 
@@ -112,7 +112,7 @@ class TrickController extends AbstractController
     }
 
     /**
-    * @Route("/{slug}/edit", name="trick_edit", methods={"GET","POST"})
+    * @Route("/trick/{slug}/edit", name="trick_edit", methods={"GET","POST"})
     * @param $fileUploader
     * @return Response
     */
@@ -133,9 +133,9 @@ class TrickController extends AbstractController
                         $this->manager->persist($image);
                     }
                 }
-                /** @var UploadedFile $uploadedFile */
+                
                 $images = $form['images']->getData();
-
+                //dd($images);
                 foreach ($images as $image) {
                 $uploadedFile = $image->getFile();
                     if ($uploadedFile) {
