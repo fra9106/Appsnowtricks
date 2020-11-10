@@ -34,11 +34,14 @@
                     <a class="nav-link" href="{{ path('security_login') }}">Sign in</a>
                     <span class="nav-link text-dark">|</span>
                 </li>
-                </li>
                 <li class="nav-item d-flex">
                     <a class="nav-link" href="{{ path('security_registration') }}">Sign up</a>
                 </li>
                 {% else %}
+                <li class="nav-item d-flex">
+                  <a class="nav-link" href="{{ path('app_edit_profile') }}">Edit profil</a>
+                  <span class="nav-link text-dark">|</span>
+                </li>
                 <li class="nav-item d-flex">
                   <a class="nav-link" href="{{ path('security_logout') }}">Logout</a>
                 </li>
@@ -48,8 +51,8 @@
         {% block body %}
         {% endblock %}
         {% block footer %}
-        <footer class="footer mt-auto mb-8 border-top bg-light">
-          <span class="p">Copyright monpersoweb.fr &#169; 2020</span>
+        <footer class="footer mt-auto ml-4 border-top bg-light">
+          <span class="p">&copy; {{ 'now'|date('Y')}} &middot; Built with <span class="text-danger">&hearts;&nbsp;</span>by <a href="https://monpersoweb.fr">monpersoweb.fr</a></span>
         </footer>
         {% endblock %}
         {% block javascripts %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}Profil modification{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('message') %}
+<div class="alert alert-success text-center" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+    <div class="container text-center ">
+        <h1>Modification Profile</h1>
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <button type="submit" class="btn btn-primary">Record modification</button>
+        
+        {{ form_end(form) }}
+        
+        <div class="form-group">
+            <a class="nav-link" href="{{ path('app_update_password') }}">Change Password</a>
+        </div>
+
+    </div>
+{% endblock %}
