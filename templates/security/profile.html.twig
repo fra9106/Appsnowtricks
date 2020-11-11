@@ -10,6 +10,20 @@
     <div class="container text-center ">
         <h1>Modification Profile</h1>
 
+        <div class="">
+            {% if user.avatar %}
+                    <img class="rounded mx-2" src="{{ asset('assets/avatars/img_profile/' ~ user.avatar) }}" alt="Image" height="100"width="100">
+            {% else %}
+                    <img class="rounded mx-2" src="{{ asset('assets/avatars/default.jpg') }}" alt="Image" height="100"width="100">
+            {% endif %}
+            <br>
+            {% if user.tricks | length > 0 %}
+            <span class="badge badge-primary">{{user.tricks | length}} Tricks</span>
+            {% else %}
+            <span class="badge badge-primary">You have no trick</span>
+            {% endif %}
+        </div>
+
         {{ form_start(form) }}
         {{ form_widget(form) }}
 
