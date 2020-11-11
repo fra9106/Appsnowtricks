@@ -67,7 +67,6 @@ class TrickController extends AbstractController
     /**
      * @Route("/new", name="trick_new", methods={"GET","POST"})
      * @param $fileUploader
-     * @return Response
      */
     public function new(Request $request, FileUploader $fileUploader): Response
     {
@@ -114,7 +113,6 @@ class TrickController extends AbstractController
     /**
     * @Route("/trick/{slug}/edit", name="trick_edit", methods={"GET","POST"})
     * @param $fileUploader
-    * @return Response
     */
     public function edit(Request $request, Trick $trick, FileUploader $fileUploader): Response
     {
@@ -221,5 +219,4 @@ class TrickController extends AbstractController
                     
         return $this->redirectToRoute('trick_index');
     }
-    
 }

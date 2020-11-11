@@ -12,15 +12,15 @@
 
         <div class="">
             {% if user.avatar %}
-                    <img class="rounded mx-2" src="{{ asset('assets/avatars/img_profile/' ~ user.avatar) }}" alt="Image" height="100"width="100">
+                    <img class="profile" src="{{ asset('assets/avatars/img_profile/' ~ user.avatar) }}" alt="Image" height="100"width="100">
             {% else %}
-                    <img class="rounded mx-2" src="{{ asset('assets/avatars/default.jpg') }}" alt="Image" height="100"width="100">
+                    <img class="profile" src="{{ asset('assets/avatars/default.jpg') }}" alt="Image" height="100"width="100">
             {% endif %}
             <br>
             {% if user.tricks | length > 0 %}
-            <span class="badge badge-primary">{{user.tricks | length}} Tricks</span>
+            <a href="{{ path('app_get_trick') }}"><span class="badge badge-primary">{{user.tricks | length}} Tricks published</span></a>
             {% else %}
-            <span class="badge badge-primary">You have no trick</span>
+            <span class="badge badge-primary">You have no trick published</span>
             {% endif %}
         </div>
 
@@ -34,6 +34,5 @@
         <div class="form-group">
             <a class="nav-link" href="{{ path('app_update_password') }}">Change Password</a>
         </div>
-
     </div>
 {% endblock %}

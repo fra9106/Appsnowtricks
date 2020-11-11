@@ -1,21 +1,15 @@
-<div class="row mt-3">
-    <div class="col-12 mb-4">
-        <h1 class="text-center">Tricks</h1>
+{% extends 'base.html.twig' %}
+{% block title %}Trick{% endblock %}
+{% block body %}
+<div class="margout row">
+    <div class="col-12 mb-4"><br><br>
+        <h1 class="text-center">Tricks de {{user.pseudo}}</h1><br><br>
     </div>
-    {% for message in app.flashes('message') %}
-    <div class="alert alert-success text-center" role="alert">
-        {{ message }}
-    </div>
-{% endfor %}
-    {% for trick in tricks %}
-        <div class="col-lg-2 col-sm-12 col-md-4 my-3 m-4 tricks-more ">
-            <div class="w-100 mx-auto p-2 row border border-lightgrey">
-                {% if app.user %}
+    {% for trick in user.tricks %}
+        <div class="col-lg-2 col-sm-12 col-md-6 my-3 m-4  ">
+            <div class="card">
                 <a href="{{ path('comment_new', {'slug': trick.slug}) }}">
-                {% else %}
-                <a href="{{ path('trick_show', {'slug': trick.slug}) }}">
-                {% endif %}
-                <div class="col-12 p-0" >
+                <div class="col-12 p-2" >
                     <div>
                         {% if trick is not empty %}
                         {% for image in trick.images %}
@@ -37,21 +31,8 @@
                     </div>
                 </div> 
                 </a>
-                </a>
             </div>
         </div>
     {% endfor %}
-    
-    <div class="scroll-to-up">
-        <a class="js-scroll-trigger d-block text-center text-white rounded" href="#tricks-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
-    </div>
-    <div class="col-12 d-flex">
-        <button class="btn btn-secondary mx-auto" id="loadMore">Load More</button>
-    </div>
-    {% block javascripts %}
-    <script src="{{ asset('assets/js/pics.js') }}"></script>
-    <script src="{{ asset('assets/js/loadMoreTricks.js') }}"></script>
-    {% endblock %}
-</div>  
+</div>
+{% endblock %}

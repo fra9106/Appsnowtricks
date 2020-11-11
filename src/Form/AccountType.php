@@ -19,10 +19,8 @@ class AccountType extends AbstractType
                 'mapped' => false,
                 'label' => 'Add or change your Profil Pic',
                 'required' => false
-            
             ]);
-        
-    }
+        }
 
     public function configureOptions(OptionsResolver $resolver)
     {
