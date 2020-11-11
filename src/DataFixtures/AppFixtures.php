@@ -243,7 +243,7 @@ class AppFixtures extends Fixture
                 ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
                 ->setCreationDate(new \DateTime())
                 ->setCategory($category2)
-                ->setUser($user)
+                ->setUser($user1)
                 
                 ->addImage($image2)
                 ->addVideo($video2);
@@ -254,7 +254,7 @@ class AppFixtures extends Fixture
                     $comment->setTrick($trick)
                             ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
                             ->setCreationDate(new \DateTime())
-                            ->setUser($user2);
+                            ->setUser($user);
 
                     $manager->persist($comment);
                 }
@@ -287,7 +287,7 @@ class AppFixtures extends Fixture
                 ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
                 ->setCreationDate(new \DateTime())
                 ->setCategory($category2)
-                ->setUser($user)
+                ->setUser($user1)
                 
                 ->addImage($image4)
                 ->addVideo($video3);
@@ -353,7 +353,7 @@ class AppFixtures extends Fixture
                 ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
                 ->setCreationDate(new \DateTime())
                 ->setCategory($category2)
-                ->setUser($user)
+                ->setUser($user1)
                 
                 ->addImage($image7)
                 ->addVideo($video5);
@@ -463,7 +463,7 @@ class AppFixtures extends Fixture
                 ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
                 ->setCreationDate(new \DateTime())
                 ->setCategory($category2)
-                ->setUser($user)
+                ->setUser($user2)
                 
                 ->addImage($image13)
                 ->addVideo($video9);
@@ -474,7 +474,7 @@ class AppFixtures extends Fixture
                     $comment->setTrick($trick)
                             ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
                             ->setCreationDate(new \DateTime())
-                            ->setUser($user2);
+                            ->setUser($user);
 
                     $manager->persist($comment);
                 }
@@ -496,7 +496,7 @@ class AppFixtures extends Fixture
                     $comment->setTrick($trick)
                             ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
                             ->setCreationDate(new \DateTime())
-                            ->setUser($user2);
+                            ->setUser($user1);
 
                     $manager->persist($comment);
                 }
@@ -529,7 +529,7 @@ class AppFixtures extends Fixture
                 ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
                 ->setCreationDate(new \DateTime())
                 ->setCategory($category2)
-                ->setUser($user)
+                ->setUser($user2)
                 
                 ->addImage($image12);
 
@@ -540,7 +540,7 @@ class AppFixtures extends Fixture
                     $comment->setTrick($trick)
                             ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
                             ->setCreationDate(new \DateTime())
-                            ->setUser($user2);
+                            ->setUser($user1);
 
                     $manager->persist($comment);
                 }
