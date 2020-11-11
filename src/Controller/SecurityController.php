@@ -3,19 +3,19 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\AccountType;
 use App\Entity\PasswordUpdate;
 use App\Form\RegistrationType;
 use App\Form\ResetPasswordType;
 use App\Form\PasswordUpdateType;
 use App\Repository\UserRepository;
+use App\Repository\TrickRepository;
 use Symfony\Component\Form\FormError;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 
@@ -24,8 +24,8 @@ class SecurityController extends AbstractController
    /**
     * @Route("/registration", name="security_registration")
     */ 
-    public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder) {
-
+    public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder): Response 
+    {
         $user = new User();
         $form = $this->createForm(RegistrationType::class, $user);
         $form->handleRequest($request);
@@ -165,47 +165,10 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * 
-     * @Route("/profile", name="app_edit_profile")
-     *
-     * @return void
-     */
-    public function profile(Request $request, EntityManagerInterface $manager)
-    {
-        $user = $this->getUser();
-        $form = $this->createForm(AccountType::class, $user);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $avatar = $form->get('avatar')->getData();
-            if($avatar){
-                $fichier = md5(uniqid()) . '.' . $avatar->guessExtension();
-                
-                $avatar->move(
-                    $this->getParameter('img_profile_directory'),
-                    $fichier
-                );
-                $user->setAvatar($fichier);
-            }
-                $manager->persist($user);
-                $manager->flush();
-                $this->addFlash('message', 'Profile modified !');
-        }
-        
-        return $this->render('security/profile.html.twig',[
-            'form' => $form->createView(),
-            'user' => $user
-        ]);
-    }
-
-    /**
      * @Route("/updatePassword", name="app_update_password")
      *
-     * @return void
      */
-    public function updatePassword(Request $request, UserPasswordEncoderInterface $encoder,EntityManagerInterface $manager )
+    public function updatePassword(Request $request, UserPasswordEncoderInterface $encoder,EntityManagerInterface $manager): Response
     {
         $passwordUpdate = new PasswordUpdate();
         $user = $this->getUser();
@@ -230,8 +193,5 @@ class SecurityController extends AbstractController
             'form' => $form->createView()
         ]);
 
-    }
-
-
-    
+    }    
 }

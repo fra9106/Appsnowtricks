@@ -20,27 +20,27 @@
             </button>
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto mr-4 d-none d-md-flex">
+              <ul class="navbar-nav ml-auto mr-4 d-md-flex">
                 <li class="nav-item active d-flex ">
                   <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                  <span class="nav-link text-dark">|</span>
+                  <span class="pipe nav-link text-dark">|</span>
                 </li>
                 <li class="nav-item d-flex">
                   <a class="nav-link" href="{{ path('trick_index')}}">Tricks</a>
-                  <span class="nav-link text-dark">|</span>
+                  <span class="pipe nav-link text-dark">|</span>
                 </li>
                 {% if not app.user %}
                 <li class="nav-item d-flex">
                     <a class="nav-link" href="{{ path('security_login') }}">Sign in</a>
-                    <span class="nav-link text-dark">|</span>
+                    <span class="pipe nav-link text-dark">|</span>
                 </li>
                 <li class="nav-item d-flex">
                     <a class="nav-link" href="{{ path('security_registration') }}">Sign up</a>
                 </li>
                 {% else %}
                 <li class="nav-item d-flex">
-                  <a class="nav-link" href="{{ path('app_edit_profile') }}">Edit profil</a>
-                  <span class="nav-link text-dark">|</span>
+                  <a class="nav-link" href="{{ path('app_edit_profile') }}">Edit profile</a>
+                  <span class="pipe nav-link text-dark">|</span>
                 </li>
                 <li class="nav-item d-flex">
                   <a class="nav-link" href="{{ path('security_logout') }}">Logout</a>
