@@ -25,7 +25,7 @@ class AppFixtures extends Fixture
     {
         $user = new User;
         $password = $this->encoder->encodePassword($user, 'toto');
-        $user->setPseudo('toto')
+        $user->setPseudo('Toto')
              ->setMail('toto@toto.com')
              ->setPassword($password)
              ->setAvatar('');
@@ -34,7 +34,7 @@ class AppFixtures extends Fixture
 
         $user1 = new User;
         $password = $this->encoder->encodePassword($user, 'tata');
-        $user1->setPseudo('tata')
+        $user1->setPseudo('Tata')
              ->setMail('tata@tata.com')
              ->setPassword($password)
              ->setAvatar('');
@@ -43,7 +43,7 @@ class AppFixtures extends Fixture
 
              $user2 = new User;
              $password = $this->encoder->encodePassword($user, 'tutu');
-             $user2->setPseudo('tutu')
+             $user2->setPseudo('Tutu')
                   ->setMail('tutu@tutu.com')
                   ->setPassword($password)
                   ->setAvatar('');

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Image;
 use App\Form\AccountType;
 use App\Repository\TrickRepository;
@@ -15,10 +16,10 @@ class UserController extends AbstractController
 {
     /**
      * 
-     * @Route("/profile", name="app_edit_profile")
+     * @Route("/profile-edit", name="app_edit_profile")
      *
      */
-    public function profile(Request $request, EntityManagerInterface $manager): Response
+    public function profileEdit(Request $request, EntityManagerInterface $manager): Response
     {
         $user = $this->getUser();
         $form = $this->createForm(AccountType::class, $user);
@@ -42,7 +43,7 @@ class UserController extends AbstractController
                 $this->addFlash('message', 'Profile modified !');
         }
         
-        return $this->render('user/profile.html.twig',[
+        return $this->render('user/profileEdit.html.twig',[
             'form' => $form->createView(),
             'user' => $user
         ]);
@@ -61,6 +62,20 @@ class UserController extends AbstractController
             'user' => $user,
             'trick' => $tricks,
             'images' => $images
+        ]);
+    }
+
+    /**
+     * @Route("/profile-user", name="app_profile_user")
+     *
+     * @return void
+     */
+    public function profile()
+    {
+        $user = $this->getUser();
+        return $this->render('user/profile.html.twig', [
+            'user' => $user
+
         ]);
     }
 }

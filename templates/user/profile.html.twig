@@ -1,38 +1,33 @@
 {% extends 'base.html.twig' %}
-{% block title %}Profil modification{% endblock %}
+{% block title %}Profile {{ app.user.pseudo }}{% endblock %}
 
 {% block body %}
-{% for message in app.flashes('message') %}
-<div class="alert alert-success text-center" role="alert">
-    {{ message }}
+
+<div class="container text-center"><br><br>
+    <div class="col-12 mb-4">
+        <h1>{{ app.user.pseudo }} Profile</h1>
+    </div><br><br>
+    <div class="">
+        {% if user.avatar %}
+                <img class="profile" src="{{ asset('assets/avatars/img_profile/' ~ user.avatar) }}" alt="Image" height="100"width="100">
+        {% else %}
+                <img class="profile" src="{{ asset('assets/avatars/default.jpg') }}" alt="Image" height="100"width="100">
+        {% endif %}
+        <br>
+        {% if user.tricks | length > 0 %}
+        <a href="{{ path('app_get_trick') }}"><span class="badge badge-primary">{{user.tricks | length}} Tricks published</span></a>
+        {% else %}
+        <span class="badge badge-primary">You have no trick published</span>
+        {% endif %}
+    </div><br><br><br>
+    <div class="card">
+        <div class="card-header">Pseudo : {{ app.user.pseudo }}</div><br><br>
+        <div class="card-content">Mail : {{ app.user.mail }}</div><br><br>
+        <div class="card-footer">
+            <a class="btn btn-primary" href="{{path('app_edit_profile')}}">Edit {{ app.user.pseudo }} profile</a>
+        </div>
+    </div><br><br><br><br><br><br>
+    
+        
 </div>
-{% endfor %}
-    <div class="container text-center ">
-        <h1>Modification Profile</h1>
-
-        <div class="">
-            {% if user.avatar %}
-                    <img class="profile" src="{{ asset('assets/avatars/img_profile/' ~ user.avatar) }}" alt="Image" height="100"width="100">
-            {% else %}
-                    <img class="profile" src="{{ asset('assets/avatars/default.jpg') }}" alt="Image" height="100"width="100">
-            {% endif %}
-            <br>
-            {% if user.tricks | length > 0 %}
-            <a href="{{ path('app_get_trick') }}"><span class="badge badge-primary">{{user.tricks | length}} Tricks published</span></a>
-            {% else %}
-            <span class="badge badge-primary">You have no trick published</span>
-            {% endif %}
-        </div>
-
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-
-        <button type="submit" class="btn btn-primary">Record modification</button>
-        
-        {{ form_end(form) }}
-        
-        <div class="form-group">
-            <a class="nav-link" href="{{ path('app_update_password') }}">Change Password</a>
-        </div>
-    </div>
 {% endblock %}

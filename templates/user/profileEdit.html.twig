@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block title %}Profile modification{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('message') %}
+<div class="alert alert-success text-center" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+    <div class="container text-center ">
+        <h1>Modification Profile</h1>
+
+        <div class="">
+            {% if user.avatar %}
+                    <img class="profile" src="{{ asset('assets/avatars/img_profile/' ~ user.avatar) }}" alt="Image" height="100"width="100">
+            {% else %}
+                    <img class="profile" src="{{ asset('assets/avatars/default.jpg') }}" alt="Image" height="100"width="100">
+            {% endif %}
+            <br>
+            {% if user.tricks | length > 0 %}
+            <a href="{{ path('app_get_trick') }}"><span class="badge badge-primary">{{user.tricks | length}} Tricks published</span></a>
+            {% else %}
+            <span class="badge badge-primary">You have no trick published</span>
+            {% endif %}
+        </div>
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <button type="submit" class="btn btn-primary">Record modification</button>
+        
+        {{ form_end(form) }}
+        
+        <div class="form-group">
+            <a class="nav-link" href="{{ path('app_update_password') }}">Change Password</a>
+        </div>
+    </div>
+{% endblock %}

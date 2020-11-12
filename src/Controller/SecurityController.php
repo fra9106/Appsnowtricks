@@ -165,7 +165,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/updatePassword", name="app_update_password")
+     * @Route("/update-password", name="app_update_password")
      *
      */
     public function updatePassword(Request $request, UserPasswordEncoderInterface $encoder,EntityManagerInterface $manager): Response
