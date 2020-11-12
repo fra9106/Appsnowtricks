@@ -19,15 +19,13 @@
         {% else %}
         <span class="badge badge-primary">You have no trick published</span>
         {% endif %}
-    </div><br><br><br>
+    </div><br><br>
     <div class="card">
-        <div class="card-header">Pseudo : {{ app.user.pseudo }}</div><br><br>
-        <div class="card-content">Mail : {{ app.user.mail }}</div><br><br>
-        <div class="card-footer">
-            <a class="btn btn-primary" href="{{path('app_edit_profile')}}">Edit {{ app.user.pseudo }} profile</a>
+        <div class="card-header"><br>Pseudo : {{ app.user.pseudo }}<br><br></div>
+        <div class="card-content"><br>Mail : {{ app.user.mail }}<br><br></div>
+        <div class="card-footer"><br>
+            <a class="btn btn-primary" href="{{path('app_edit_profile')}}">Edit {{ app.user.pseudo }} profile</a><br><br>
         </div>
     </div><br><br><br><br><br><br>
-    
-        
 </div>
 {% endblock %}
