@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Security\Voter\TrickVoter;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 /**
  * @Route("/trick")
  */
@@ -171,7 +171,7 @@ class TrickController extends AbstractController
     /**
     * @Route("/{slug}/newcomment/{page<\d+>?1}", name="comment_new", methods={"GET","POST"})
     */
-    public function newComment(Request $request, Trick $trick, EntityManagerInterface $manager,Paginator $paginator, $page) : response
+    public function newComment(Request $request, Trick $trick, EntityManagerInterface $manager,Paginator $paginator, $page) : Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
         $comment = new Comment();
@@ -218,5 +218,27 @@ class TrickController extends AbstractController
             }
                     
         return $this->redirectToRoute('trick_index');
+    }
+
+    /**
+     * @Route("/{id}/delete-comment", name="comment_delete", methods={"DELETE"})
+     * @ParamConverter("comment", options={"id" = "id"})
+     * @return Response
+     */
+    public function deleteComment(Request $request, Comment $comment, Trick $trick, Paginator $paginator): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        if ($this->isCsrfTokenValid('delete'.$comment->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($comment);
+            $entityManager->flush();
+        }
+        return $this->render('trick/show.html.twig', [
+            'trick' => $trick,
+            'slug' => $trick->getSlug(),
+            'paginator' => $paginator,
+            'comment' => $comment
+        
+            ]);
     }
 }

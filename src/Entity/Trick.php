@@ -40,6 +40,7 @@ class Trick
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
      * @Assert\Length(
      * min=5,
      * max=35, 
@@ -56,6 +57,7 @@ class Trick
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      * @Assert\Length(
      * min=5,
      * minMessage="Merci de rentrer plus de 5 caractères pour le descriptif."

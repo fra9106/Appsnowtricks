@@ -9,11 +9,13 @@ class PasswordUpdate
     private $oldPassword;
 
     /**
+     * @Assert\NotBlank
      *@Assert\Length(min=4, minMessage="Votre mot de passe doit faire au moins 4 caractères !")
      */
     private $newPassword;
 
     /**
+     * @Assert\NotBlank
      *@Assert\EqualTo(propertyPath="newPassword", message="La confirmation password doit être identique au nouveau mot de passe !")
      */
     private $confirmPassword;

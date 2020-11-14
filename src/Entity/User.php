@@ -26,6 +26,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
      * @Assert\Length(
      *      min = 4,
      *      max = 50,
@@ -38,6 +39,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank
      * @Assert\Email(
      *      message = "The email '{{ value }}' is not a valid email."
      * )
@@ -46,6 +48,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      * @Assert\Length(
      *      min = 4,
      *      max = 150,
@@ -56,6 +59,7 @@ class User implements UserInterface
      */
     private $password;
     /**
+     * @Assert\NotBlank
      * @Assert\EqualTo(propertyPath="password") 
      */
     public $confirm_password;
@@ -89,6 +93,8 @@ class User implements UserInterface
     {
         $this->trick = new ArrayCollection();
         $this->user = new ArrayCollection();
+        $this->comments = new ArrayCollection();
+    
     }
 
     public function getId(): ?int

@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto mr-4 d-md-flex">
                 <li class="nav-item active d-flex ">
-                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link text-primary" href="/">Home <span class="sr-only">(current)</span></a>
                   {% if not app.user %}
                   <span class="pipe nav-link text-dark">|</span>
                   {% endif %}
@@ -33,9 +33,10 @@
                 </li>
                 {% else %}
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="tricksLink" href="#">Tricks</a>
-                  <div class="dropdown-menu " id="tricksLink">
+                  <a  href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="tricksLink">Tricks</a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tricksLink">
                     <a href="{{ path('trick_new')}}" class="dropdown-item">Add Trick</a>
+                    <div class="dropdown-divider"></div>
                     <a href="{{ path('app_get_trick')}}" class="dropdown-item">{{app.user.pseudo}} Tricks</a>
                     <a href="{{ path('trick_index')}}" class="dropdown-item">All Tricks</a>
                   </div>
@@ -51,8 +52,8 @@
                 </li>
                 {% else %}
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="profileLink" href="#">profile</a>
-                  <div class="dropdown-menu" id="profileLink">
+                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="profileLink">profile</a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileLink">
                     {% if app.user.avatar %}
                       <a class="nav-link" href="{{ path('app_edit_profile') }}">
                       <img class="mini-profile" src="{{ asset('assets/avatars/img_profile/' ~ app.user.avatar) }}">
@@ -62,6 +63,7 @@
                       <img class="mini-profile" src="{{ asset('assets/avatars/default.jpg') }}">
                       {{app.user.pseudo}} edit</a>
                       {% endif %}
+                      <div class="dropdown-divider"></div>
                     <a class="nav-link" href="{{ path('app_profile_user') }}">{{app.user.pseudo}} profile</a>
                     <a class="nav-link" href="{{ path('app_update_password') }}">Update Password</a>  
                   </div>
