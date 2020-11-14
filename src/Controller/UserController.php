@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Entity\Image;
 use App\Form\AccountType;
 use App\Repository\TrickRepository;
+use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -60,15 +61,28 @@ class UserController extends AbstractController
         $tricks = $repo->findAll($user);
         return $this->render('trick/trickUser.html.twig', [
             'user' => $user,
-            'trick' => $tricks,
+            'tricks' => $tricks,
             'images' => $images
+        ]);
+    }
+
+    /**
+     * @Route("/get-comment-user", name="app_get_comment")
+     *
+     */
+    public function getComment(CommentRepository $repo): Response
+    {
+        $user = $this->getUser();
+        $comments = $repo->findAll($user);
+        return $this->render('trick/commentUser.html.twig', [
+            'user' => $user,
+            'comments' => $comments
         ]);
     }
 
     /**
      * @Route("/profile-user", name="app_profile_user")
      *
-     * @return void
      */
     public function profile()
     {

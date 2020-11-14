@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Trick{% endblock %}
+{% block title %}Trick-user{% endblock %}
 {% block body %}
 <div class="margout row">
     <div class="col-12 mb-4"><br><br>
@@ -7,10 +7,10 @@
     </div>
     {% for trick in user.tricks %}
         <div class="col-lg-2 col-sm-12 col-md-6 my-3 m-4  ">
-            <div class="card">
+            <div class="card shadow">
                 <a href="{{ path('comment_new', {'slug': trick.slug}) }}">
                 <div class="col-12 p-2" >
-                    <div>
+                    <div class="mw-100 overflow-hidden">
                         {% if trick is not empty %}
                         {% for image in trick.images %}
                         {% if loop.first %}
