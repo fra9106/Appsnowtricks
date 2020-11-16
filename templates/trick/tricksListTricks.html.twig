@@ -1,6 +1,6 @@
 <div class=" margout row mt-3">
     <div class="col-12 mb-4"><br><br><br><br>
-        <h1 class="text-center">Tricks</h1><br><br><br><br>
+        <h1 class="text-center">All tricks</h1><br><br><br><br>
     </div>
     {% for message in app.flashes('message') %}
     <div class="alert alert-success text-center" role="alert">
@@ -41,7 +41,7 @@
         </div>
     {% endfor %}
     <div class="col-12 d-flex">
-        <button class="btn btn-secondary mx-auto" id="loadMore">Load More</button>
+        <button class="btn-rounded btn btn-secondary mx-auto" id="loadMore">Load More</button>
     </div>
     {% block javascripts %}
     <script src="{{ asset('assets/js/pics.js') }}"></script>
