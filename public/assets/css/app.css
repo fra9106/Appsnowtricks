@@ -22,6 +22,10 @@
   margin-top: 150px;
 }
 
+.btn-rounded {
+  border-radius: 20px !important;
+}
+
 .slider {
   background: url('../img/pic_home.jpg') center center/cover no-repeat;
   

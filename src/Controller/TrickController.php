@@ -157,7 +157,7 @@ class TrickController extends AbstractController
                 }
                 $this->manager->persist($trick);
                 $this->manager->flush();
-                
+                $this->addFlash('message', 'Trick modified!');
                 return $this->redirectToRoute('trick_show', [
                 'slug' => $trick->getSlug()
                 ]); 
@@ -179,12 +179,12 @@ class TrickController extends AbstractController
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
-                $this->addFlash('message', 'Comment added!');
-                $comment->setCreationDate(new \DateTime())
+               $comment->setCreationDate(new \DateTime())
                         ->setTrick($trick);
+
                 $manager->persist($comment);
                 $manager->flush();
-                        
+                $this->addFlash('message', 'Comment added!');     
                 return $this->redirectToRoute('trick_show', [
                         'id' => $trick->getId(),
                         'slug' => $trick->getSlug(),
@@ -215,6 +215,7 @@ class TrickController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->remove($trick);
                 $entityManager->flush();
+                $this->addFlash('message', 'trick deleted!');
             }
                     
         return $this->redirectToRoute('trick_index');
@@ -222,7 +223,6 @@ class TrickController extends AbstractController
 
     /**
      * @Route("/{id}/delete-comment", name="comment_delete", methods={"DELETE"})
-     * @ParamConverter("comment", options={"id" = "id"})
      * @return Response
      */
     public function deleteComment(Request $request, Comment $comment, Trick $trick, Paginator $paginator): Response
