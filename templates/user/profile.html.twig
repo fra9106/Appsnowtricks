@@ -19,6 +19,12 @@
         {% else %}
         <span class="badge badge-primary">You have no trick published</span>
         {% endif %}
+        <br>
+        {% if user.comments | length > 0 %}
+        <a href="{{ path('app_get_comment') }}"><span class="badge badge-primary">{{user.comments | length}} comments published</span></a>
+        {% else %}
+        <span class="badge badge-primary">You have no comments published</span>
+        {% endif %}
     </div><br><br>
     <div class="card">
         <div class="card-header"><br>Pseudo : {{ app.user.pseudo }}<br><br></div>

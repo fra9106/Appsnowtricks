@@ -19,7 +19,7 @@ class FileUploader
         $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
         $newFilename = $originalFilename . '-' . uniqid() . '.' . $uploadedFile->guessExtension();
 
-        $uploadedFile->move($load,$newFilename);
+        $uploadedFile->move($load, $newFilename);
 
         return $newFilename;
     }

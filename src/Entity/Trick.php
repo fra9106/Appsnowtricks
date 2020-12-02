@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Image;
 use App\Service\Slug;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\TrickRepository;
@@ -77,11 +78,13 @@ class Trick
 
     /**
      * @ORM\OneToMany(targetEntity=Image::class, mappedBy="trick", cascade = {"persist"}, orphanRemoval=true)
+     * @Assert\Valid()
      */
     private $images;
 
     /**
-     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="trick", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="trick", cascade = {"persist"}, orphanRemoval=true)
+     * @Assert\Valid()
      */
     private $videos;
 
