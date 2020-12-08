@@ -18,4 +18,12 @@ window.onload = () => {
 
     })
 
+    $(document).ready(function() {
+        $(".media-n").hide();
+        $(".see").click(function(e){
+            e.preventDefault();
+            $('.media-n').show().css("display", "flex");
+        })
+    })
+
 }

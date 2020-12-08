@@ -93,12 +93,18 @@ class Trick
      */
     private $comments;
 
+    /**
+     * @ORM\OneToMany(targetEntity=TrickLike::class, mappedBy="trick")
+     */
+    private $likes;
+
 
     public function __construct()
     {
         $this->images = new ArrayCollection();
         $this->videos = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -297,5 +303,49 @@ class Trick
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection|TrickLike[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(TrickLike $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setTrick($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(TrickLike $like): self
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getTrick() === $this) {
+                $like->setTrick(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * like or not by user
+     *
+     * @param User $user
+     * @return boolean
+     */
+    public function isLikedByUser(User $user) : bool
+    {
+        foreach ($this->likes as $like) {
+            if($like->getUser() === $user) return true;
+        }
+        return false;
     }
 }

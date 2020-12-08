@@ -90,11 +90,16 @@ class User implements UserInterface
      */
     private $comments;
 
+    /**
+     * @ORM\OneToMany(targetEntity=TrickLike::class, mappedBy="user")
+     */
+    private $likes;
+
     public function __construct()
     {
         $this->trick = new ArrayCollection();
-
         $this->comments = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     
     }
 
@@ -260,4 +265,34 @@ class User implements UserInterface
 
         return $this;
     }*/
+
+   /**
+    * @return Collection|TrickLike[]
+    */
+   public function getLikes(): Collection
+   {
+       return $this->likes;
+   }
+
+   public function addLike(TrickLike $like): self
+   {
+       if (!$this->likes->contains($like)) {
+           $this->likes[] = $like;
+           $like->setUser($this);
+       }
+
+       return $this;
+   }
+
+   public function removeLike(TrickLike $like): self
+   {
+       if ($this->likes->removeElement($like)) {
+           // set the owning side to null (unless already changed)
+           if ($like->getUser() === $this) {
+               $like->setUser(null);
+           }
+       }
+
+       return $this;
+   }
 }

@@ -39,6 +39,8 @@
         indexVideos++;
         handleDeleteButtons();
     }
+
+    
     
         function handleDeleteButtons() {
         document.querySelectorAll('button.btn-delete-image.btn.btn-danger.fas.fa-trash-alt').forEach((elem) => {
@@ -57,7 +59,7 @@
     
     // Partie modale
         const modalImage = () => {
-            const btn = '<button type="button" class="js-modal-close">X</button>';
+            const btn = '<button type="button" class="js-modal-close"><i class="fas fa-times"></i></button>';
             const formRow = trickImages.querySelectorAll('.form-group');
             const modalElem = document.querySelectorAll('.js-modal-image');
             const modalWrapper = trickImages.querySelectorAll('.modal-none');
@@ -78,7 +80,7 @@
             }
         }
         const modalVideo = () => {
-            const btn = '<button type="button" class="js-modal-close">X</button>';
+            const btn = '<button type="button" class="js-modal-close"><i class="fas fa-times"></i></button>';
             const formRow = trickVideos.querySelectorAll('.form-group');
             const modalElem = document.querySelectorAll('.js-modal-video');
             const modalWrapper = trickVideos.querySelectorAll('.modal-none');
@@ -142,7 +144,7 @@
         //suppression mini-image
         const btnDeleteImage = document.querySelectorAll('.btn-delete-image.fas.fa-trash-alt');
         for (let i = 0; i < btnDeleteImage.length; i++) {
-            btnDeleteImage[i].setAttribute("href", "#modal-picture-" + i);
+            btnDeleteImage[i].setAttribute("href", "#modal-image-" + i);
             //console.log(btnDeleteImage);
         }
     

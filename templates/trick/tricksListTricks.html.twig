@@ -1,44 +1,57 @@
 <div class=" margout row mt-3">
     <div class="col-12 mb-4"><br><br><br><br>
-        <h1 class="text-center">All tricks</h1><br><br><br><br>
+        <h1 class="title text-center">Your tricks</h1><br><br><br><br>
     </div>
     {% for message in app.flashes('message') %}
     <div class="alert alert-success text-center" role="alert">
         {{ message }}
     </div>
-{% endfor %}
+    {% endfor %}
     {% for trick in tricks %}
-        <div class="col-lg-2 col-sm-12 col-md-4 my-3 m-4 tricks-more ">
-            <div class="w-100 mx-auto p-2 row rounded bg-white shadow mw-100 overflow-hidden ">
-                {% if app.user %}
-                <a href="{{ path('comment_new', {'slug': trick.slug}) }}">
+    <div class="col-lg-2 col-sm-12 col-md-4 my-3 m-4 tricks-more ">
+        <div class="w-100 mx-auto p-2 row rounded bg-white shadow mw-100 overflow-hidden ">
+            {% if app.user %}
+            <a href="{{ path('comment_new', {'slug': trick.slug}) }}">
                 {% else %}
                 <a href="{{ path('trick_show', {'slug': trick.slug}) }}">
-                {% endif %}
-                <div class="col-12 p-0" >
-                    <div>
-                        {% if trick is not empty %}
-                        {% for image in trick.images %}
-                        {% if loop.first %}
-                        <img class="h-100 w-100" src="{{ asset('assets/uploads/images/' ~ image.path) }}" alt="{{ trick.name }}">
-                        {% endif %}
-                        {% else %}
-                        <img class="h-100 w-100" src="{{ asset('assets/img_default/logosnow.png') }}" alt="logoSnow">
-                        {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div class="d-flex col-12 p-3 name-trick">
-                        <div class="d-flex text-align-inline">{{ trick.name }}
-                            {% if is_granted('edit', trick) %}
-                            <a class="px-2" href="{{ path('trick_edit', {'slug': trick.slug}) }}"><i class="fas fa-pen "></i></a>
-                            {{ include('trick/_delete_form.html.twig') }}
+                    {% endif %}
+                    <div class="col-12 p-0">
+                        <div class="text-center name-trick ">
+                            {{ trick.name }}
+                        </div>
+                        <div>
+                            {% if trick is not empty %}
+                            {% for image in trick.images %}
+                            {% if loop.first %}
+                            <img class="h-100 w-100" src="{{ asset('assets/uploads/images/' ~ image.path) }}"
+                                alt="{{ trick.name }}">
+                            {% endif %}
+                            {% else %}
+                            <img class="h-100 w-100" src="{{ asset('assets/img_default/logosnow.png') }}"
+                                alt="logoSnow">
+                            {% endfor %}
                             {% endif %}
                         </div>
+                        <div class="d-flex col-12 p-3">
+                            {% if is_granted('edit', trick) %}
+                            <a class="px-2" href="{{ path('trick_edit', {'slug': trick.slug}) }}"><i
+                                    class="fas fa-pen "></i></a>
+                            {{ include('trick/_delete_form.html.twig') }}
+                            {% endif %}
+                            <a href="{{ path('trick_like', {'slug': trick.slug}) }}" class="btn btn-link js_like">
+                                {% if app.user and trick.isLikedByUser(app.user) %}
+                                <i class="fas fa-thumbs-up"></i>
+                                {% else %}
+                                <i class="far fa-thumbs-up"></i>
+                                {% endif %}
+                                <span class="js-likes">{{trick.likes | length}}</span>
+                                <span class="js-label">J'aime</span>
+                            </a>
+                        </div>
                     </div>
-                </div> 
                 </a>
-            </div>
         </div>
+    </div>
     {% endfor %}
     <div class="col-12 d-flex">
         <button class="btn-rounded btn btn-secondary mx-auto" id="loadMore">Load More</button>
@@ -46,5 +59,6 @@
     {% block javascripts %}
     <script src="{{ asset('assets/js/pics.js') }}"></script>
     <script src="{{ asset('assets/js/loadMoreTricks.js') }}"></script>
+    <script src="{{ asset('assets/js/likes.js') }}"></script>
     {% endblock %}
 </div>
