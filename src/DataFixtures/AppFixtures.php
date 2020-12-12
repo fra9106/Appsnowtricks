@@ -256,7 +256,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=15; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user1);
             
@@ -284,7 +284,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=12; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user);
             
@@ -312,7 +312,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=4; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user2);
             
@@ -340,7 +340,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=20; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user1);
             
@@ -368,7 +368,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=22; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user);
             
@@ -396,7 +396,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=7; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user1);
             
@@ -424,7 +424,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=23; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user);
             
@@ -452,7 +452,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=13; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user2);
             
@@ -480,7 +480,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=12; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user2);
             
@@ -502,7 +502,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=5; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user2);
             
@@ -530,7 +530,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=8; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user2);
             
@@ -558,7 +558,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=2; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user);
             
@@ -580,7 +580,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=14; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user1);
             
@@ -608,7 +608,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=9; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user2);
             
@@ -630,7 +630,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=15; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user1);
             
@@ -658,7 +658,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=25; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user1);
             
@@ -686,7 +686,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=6; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user1);
             
@@ -708,7 +708,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=7; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user1);
             
@@ -736,7 +736,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=19; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user2);
             
@@ -758,7 +758,7 @@ class AppFixtures extends Fixture
         for($e = 1 ; $e<=25; $e++) {
             $comment = new Comment;
             $comment->setTrick($trick)
-            ->setContent('Sed aliquet pharetra velit sed rhoncus. Mauris sit amet tincidunt nisl, porttitor fermentum arcu. Ut aliquam ac ligula vel faucibus.')
+            ->setContent('Sed aliquet pharetra velit sed rhoncus,consectetur adipiscing elit.')
             ->setCreationDate(new \DateTime())
             ->setUser($user1);
             

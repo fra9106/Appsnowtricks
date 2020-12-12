@@ -19,11 +19,14 @@ window.onload = () => {
     })
 
     $(document).ready(function() {
+        
         $(".media-n").hide();
-        $(".see").click(function(e){
-            e.preventDefault();
-            $('.media-n').show().css("display", "flex");
-        })
+        $('.see').click(function(){
+            $(".media-n").toggle();
+            $(this).val( $(this).val() == 'Not See Medias' ? 'See Medias' : 'Not See Medias' );
+        });
     })
+
+   
 
 }

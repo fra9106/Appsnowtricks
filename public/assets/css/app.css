@@ -3,7 +3,7 @@ body,html {
   padding: 0;
 }
 
-h1,h2,h3,h4,h5 {
+h1,h2,h3,h4,h5,p {
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -52,6 +52,11 @@ h1,h2,h3,h4,h5 {
 .image-tricks {
   width: 150px;
   height: 100px;
+}
+
+.image-trick {
+  width:100%;
+  height: auto;
 }
 
 .btn {
@@ -151,6 +156,15 @@ button.js-modal-close {
 
 .see {
   display: block;
+  cursor: pointer;
+}
+
+.bt-edit-poster {
+  display: block;
+  position: absolute;
+  z-index: 50;
+  margin-left: 250px;
+  top: 190px;
 }
 
 @media (min-width: 992px) {
@@ -185,6 +199,15 @@ button.js-modal-close {
 
   .see {
     display: none !important;
+  }
+
+  .media-n {
+    display: block !important;
+  }
+
+  .bt-edit-poster {
+    margin-left: 890px;
+    top: 170px;
   }
  
 }

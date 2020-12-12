@@ -27,7 +27,7 @@
                                 alt="{{ trick.name }}">
                             {% endif %}
                             {% else %}
-                            <img class="h-100 w-100" src="{{ asset('assets/img_default/logosnow.png') }}"
+                            <img class="h-100 w-100" src="{{ asset('assets/img_default/460.jpg') }}"
                                 alt="logoSnow">
                             {% endfor %}
                             {% endif %}
@@ -35,7 +35,7 @@
                         <div class="d-flex col-12 p-3">
                             {% if is_granted('edit', trick) %}
                             <a class="px-2" href="{{ path('trick_edit', {'slug': trick.slug}) }}"><i
-                                    class="fas fa-pen "></i></a>
+                                    class="btn btn-primary fas fa-pencil-alt"></i></a>
                             {{ include('trick/_delete_form.html.twig') }}
                             {% endif %}
                             <a href="{{ path('trick_like', {'slug': trick.slug}) }}" class="btn btn-link js_like">

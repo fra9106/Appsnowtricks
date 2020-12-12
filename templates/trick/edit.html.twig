@@ -2,60 +2,62 @@
 {% block title %}Edit Trick{% endblock %}
 {% form_theme form _self %}
 {% block body %}
-<div class=" edit-trick container text-center border">
-    <div class="title">
-        <h2>{{ trick.name }}</h2>
+
+{{ form_start(form, { "attr": { "class": "form-group"} }) }}
+
+<div class="container text-center border">
+    <h2 class="title-show">{{ trick.name }}</h2>
+    {% if trick is not empty %}
+    {% for image in trick.images %}
+    {% if loop.first %}
+    <div class="edit-image-poster-icons">
+        <img class="image-trick rounded mb-2" src="{{ asset('assets/uploads/images/' ~ image.path) }}" alt="Image"
+            height="100" width="150">
+        <div class="bt-edit-poster">
+            <a href="" type="button" class="btn-delete-image btn btn-danger fas fa-trash-alt"></a>
+            <a href="" class="js-modal-image btn btn-primary fas fa-pencil-alt"></a>
+        </div>
     </div>
-    {{ form_start(form, { "attr": { "class": "form-group"} }) }}
-    <div class="edit-content">
-        {% if trick.images is not empty %}
-        <div class="edit-image">
+    {% endif %}
+    {% else %}
+    <div class="edit-image-poster-icons">
+        <img class="image-trick rounded mx-2" src="{{ asset('assets/img_default/460.jpg') }}" alt="Image">
+        <div class="bt-edit-poster">
+            <a href="" type="button" class="btn-delete-image btn btn-danger fas fa-trash-alt"></a>
+            <a href="" class="js-modal-image btn btn-primary fas fa-pencil-alt"></a>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <input type="button" class="see btn btn-success mt-2 mb-2" value="See Medias">
+    <div class="container media-n my-4 justify-content-center">
+        <div class="row">
             {% for image in trick.images %}
-            {% if loop.first %}
-            <div class="edit-image-content-poster">
-                <img class="image-trick rounded" src="{{ asset('assets/uploads/images/' ~ image.path) }}" alt="Image"
-                    height="100" width="150">
-                <div class="edit-image-poster-icons">
-                    <a href="" type="button" class="btn-delete-image btn btn-danger fas fa-trash-alt"></a>
-                    <a href="" class="js-modal-image btn btn-primary fas fa-pencil-alt"></a>
+            {% if not loop.first %}
+            <div
+                class="edit-image-content-image align-items-center d-flex text-align-inline justify-content-center my-4">
+                <img class="mb-1 image-tricks rounded ml-4" src="{{ asset('assets/uploads/images/' ~ image.path) }}"
+                    alt="Image" width="150">
+                <div class="image-tricks-icons align-self-center">
+                    <a href="" class=" btn-delete-image btn btn-danger fas fa-trash-alt"></a>
+                    <a href="" class=" js-modal-image btn btn-primary fas fa-pencil-alt"></a>
                 </div>
             </div>
             {% endif %}
             {% endfor %}
         </div>
-        {% endif %}
-        <div class="edit-trick-content-miniPics container text-center">
-            <div
-                class="edit-trick-content-miniPics-target mb-4 d-flex text-align-inline justify-content-center">
-                <div class="edit-trick-content-image-thumbnail align-items-center d-flex text-align-inline justify-content-center ">
-                    {% for image in trick.images %}
-                    {% if not loop.first %}
-                    
-                    <div class=" edit-image-content-image-thumbnail-figure align-items-center d-flex text-align-inline justify-content-center my-4">
-                        <img class="image-tricks rounded mx-2" src="{{ asset('assets/uploads/images/' ~ image.path) }}"
-                            alt="Image" width="150">
-                        <div class="edit-image-content-image-thumbnail-figure-icons">
-                            <a href="" class="btn-delete-image btn btn-danger fas fa-trash-alt"></a>
-                            <a href="" class="js-modal-image btn btn-primary fas fa-pencil-alt"></a>
-                        </div>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
         {{ form_row(form.images) }}
-
+        {{ form_row(form.videos) }}
         {% if trick.videos is not empty %}
-        <div class="edit-trick-content-video">
-            <div
-                class=" edit-trick-content-video-thumbnail align-items-center d-flex text-align-inline justify-content-center my-4">
+        <div class="container edit-trick-video">
+            <div class="row">
                 {% for video in trick.videos %}
-                <div class="edit-trick-content-video-thumbnail-card align-items-center d-flex text-align-inline justify-content-center">
-                    <iframe class="video-tricks rounded mx-2" src="{{ video.url }}" frameborder="0"
+                <div
+                    class="edit-trick-content-video d-flex text-align-inline align-items-center justify-content-center my-4">
+                    <iframe class="mb-1 video-tricks rounded" src="{{ video.url }}" frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
-                    <div class="edit-trick-content-video-thumbnail-card-icons">
+                    <div class="video-trick-icons align-self-center ">
                         <a href="" class="btn-delete-video btn btn-danger fas fa-trash-alt"></a>
                         <a href="" class="js-modal-video btn btn-primary fas fa-pencil-alt"></a>
                     </div>
@@ -63,13 +65,11 @@
                 {% endfor %}
             </div>
         </div>
-        {% endif %}
-        {{ form_row(form.videos) }}
-        {{ include('trick/_form.html.twig', {'button_label': 'Update'}) }}
-        <a href="{{ path('trick_index') }}">back to list</a>
-        {{ include('trick/_delete_form.html.twig') }}
-        {{ include( "trick/_edit_modal.html.twig") }}
     </div>
+    {% endif %}
+    {{ include('trick/_form.html.twig', {'button_label': 'Update'}) }}
+    <a href="{{ path('trick_index') }}" class="btn btn-secondary">back to list</a>
+    
 </div>
 
 {% endblock %}
@@ -82,7 +82,7 @@
 {% block _trick_images_row %}
 {{ form_widget(form) }}
 <div class=>
-    <button type="button" class="btn btn-primary btn-add-images" id="add-images">Add Picture</button>
+    <button type="button" class="btn btn-primary btn-add-images mt-4" id="add-images">Add Picture</button>
 </div><br>
 {% endblock %}
 
@@ -90,8 +90,7 @@
 <div class="modal-none">
     <div class="edit-trick-content-form-entry">
         {{ form_widget(form.file)}}
-        <button type="button"
-            class="btn-delete-image btn btn-danger fas fa-trash-alt">
+        <button type="button" class="btn-delete-image btn btn-danger fas fa-trash-alt">
         </button>
     </div>
 </div>
@@ -104,38 +103,36 @@
 
 {% block _trick_videos_entry_widget %}
 <div class="modal-none">
-<div class="edit-trick-content-form-entry">
-    <div class="row">
-        <div class="col-10">
-            <div class="row">
-                <div class="col">
-                    {{ form_widget(form.url) }}
-                </div>
-                <div class="col">
-                    {{ form_widget(form.name) }}
+    <div class="edit-trick-content-form-entry">
+        <div class="row">
+            <div class="col-10">
+                <div class="row">
+                    <div class="col">
+                        {{ form_widget(form.url) }}
+                    </div>
+                    <div class="col">
+                        {{ form_widget(form.name) }}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-2">
-            <button type="button"
-                class="btn-delete-video btn btn-danger fas fa-trash-alt"></button>
+            <div class="col-2">
+                <button type="button" class="btn-delete-video btn btn-danger fas fa-trash-alt"></button>
+            </div>
         </div>
     </div>
-</div>
 </div>
 {% endblock %}
 {% block javascripts %}
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-</script>
+    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous">
-</script>
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous">
-</script>
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
 <script src="{{ asset('assets/js/edit.js') }}"></script>
 <script src="{{ asset('assets/js/addFileName.js') }}"></script>
+<script src="{{ asset('assets/js/loadMoreTricks.js') }}"></script>
 {% endblock %}
