@@ -70,13 +70,15 @@ class UserController extends AbstractController
      * @Route("/get-comment-user", name="app_get_comment")
      *
      */
-    public function getComment(CommentRepository $repo): Response
+    public function getComment(CommentRepository $repo, TrickRepository $TrickRepository): Response
     {
         $user = $this->getUser();
         $comments = $repo->findAll($user);
-        return $this->render('trick/commentUser.html.twig', [
+        $trick = $TrickRepository->findAll($user);
+        return $this->render('user/commentUser.html.twig', [
             'user' => $user,
-            'comments' => $comments
+            'comments' => $comments,
+            'trick' => $trick
         ]);
     }
 

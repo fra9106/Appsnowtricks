@@ -11,14 +11,12 @@ use App\Service\Paginator;
 use App\Service\FileUploader;
 use App\Security\Voter\TrickVoter;
 use App\Repository\TrickRepository;
-use Symfony\Component\Mime\Message;
 use App\Repository\TrickLikeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -120,9 +118,6 @@ class TrickController extends AbstractController
      */
     public function edit(Request $request, Trick $trick, FileUploader $fileUploader): Response
     {
-        $originalImages = new ArrayCollection();
-        $originalVideos = new ArrayCollection();
-
         $this->denyAccessUnlessGranted(TrickVoter::EDIT, $trick);
         $trick->setUpdateDate(new \Datetime());
 
@@ -130,13 +125,6 @@ class TrickController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            foreach ($originalImages as $image) {
-                if (false === $trick->getImages()->contains($image)) {
-                    $image->getTrick()->removeElement($trick);
-                    $this->manager->persist($image);
-                }
-            }
 
             $images = $form['images']->getData();
 
@@ -147,12 +135,8 @@ class TrickController extends AbstractController
                     $image->setPath($newFilename);
                 } 
         
-                    //foreach ($trick->getImages() as $image) {
-                        //$filesystem->remove('assets/uploads/images/' . $image->getPath());
-                    //}
                 $image->setTrick($trick);
                 $this->manager->persist($image);
-                
             }
 
             $videos = $form['videos']->getData();

@@ -21,12 +21,11 @@ window.onload = () => {
     $(document).ready(function() {
         
         $(".media-n").hide();
+        $(".bt-edit-poster").hide();
         $('.see').click(function(){
             $(".media-n").toggle();
+            $(".bt-edit-poster").toggle();
             $(this).val( $(this).val() == 'Not See Medias' ? 'See Medias' : 'Not See Medias' );
         });
     })
-
-   
-
 }

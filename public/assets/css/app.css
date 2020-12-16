@@ -132,6 +132,7 @@ h1,h2,h3,h4,h5,p {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.8);
+  animation: fadeIn .9s both;
 }
 
 .modal-wrapper{
@@ -142,6 +143,7 @@ h1,h2,h3,h4,h5,p {
   padding: 60px;
   margin-top: 150px;
   border-radius: 10px;
+  animation: slideFromTop .9s both .1s;
 }
 
 button.js-modal-close {
@@ -164,7 +166,35 @@ button.js-modal-close {
   position: absolute;
   z-index: 50;
   margin-left: 250px;
-  top: 190px;
+  top: 345px;
+}
+
+.modal[aria-hidden="true"] {
+  animation-name: fadeOut;
+}
+
+.modal[aria-hidden="true"] .modal-wrapper {
+  animation-name: slideToBot;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideFromTop {
+  from { transform: translateY(-350px);}
+  to { transform: translateY(0px);}
+}
+
+@keyframes slideToBot {
+  from { transform: translateY(0px);}
+  to { transform: translateY(550px);}
 }
 
 @media (min-width: 992px) {
@@ -190,6 +220,15 @@ button.js-modal-close {
     border-radius: 2%;
   }
 
+  .video-tricks:hover {
+    transform: scale(1.075);
+  }
+
+  .video-tricks {
+    transition: transform 0.3s ease-out;
+    border-radius: 2%;
+  }
+
   .modal-wrapper{
     width: 50%;
     margin-left: 480px !important;
@@ -209,5 +248,9 @@ button.js-modal-close {
     margin-left: 890px;
     top: 170px;
   }
- 
+
+  .bt-edit-poster {
+    display: block !important;
+  }
+
 }

@@ -77,13 +77,13 @@ class Trick
     private $update_date;
 
     /**
-     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="trick", cascade = {"persist"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="trick", cascade ={"persist"}, orphanRemoval=true)
      * @Assert\Valid()
      */
     private $images;
 
     /**
-     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="trick", cascade = {"persist"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="trick", cascade ={"persist"}, orphanRemoval=true)
      * @Assert\Valid()
      */
     private $videos;
