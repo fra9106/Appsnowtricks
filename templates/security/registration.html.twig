@@ -1,26 +1,26 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-<div class="container mt-4 text-center"><br>
-    <h1>Resistration</h1><br><br><br>
-    
-    {{ form_start(form) }}
-    
-    {{ form_row(form.pseudo, {'label' : "Username", 'attr' : {'placeholder': "Pseudo"}}) }}<br>
-    {{ form_row(form.mail, {'label' : "Email", 'attr' : {'placeholder': "Votre email"}}) }}<br>
-    {{ form_row(form.password, {'label' : "Password", 'attr' : {'placeholder': "Mot de passe"}}) }}<br>
-    {{ form_row(form.confirm_password, {'label' : "Confirm Password", 'attr' : {'placeholder': "Confirmez Mot de passe"}}) }}<br><br><br>
-    {{ form_row(form.avatar, {'label' : "Profil pic", 'attr' : {'placeholder': "Votre photo de profil"}}) }}<br>
-    <button class="btn btn-success">Create an account</button><br><br><br><br><br><br>
-    
-    {{ form_end(form) }}
-    </div>
+<div class="container text-center">
+    <h1 class="my-5">Resistration</h1>
+    <div class=" border py-4 px-5">
+        {{ form_start(form) }}
+        {{ form_row(form.pseudo, {'label' : "Username", 'attr' : {'placeholder': "Pseudo"}}) }}<br>
+        {{ form_row(form.mail, {'label' : "Email", 'attr' : {'placeholder': "Votre email"}}) }}<br>
+        {{ form_row(form.password, {'label' : "Password", 'attr' : {'placeholder': "Mot de passe"}}) }}<br>
+        {{ form_row(form.confirm_password, {'label' : "Confirm Password", 'attr' : {'placeholder': "Confirmez Mot de
+        passe"}}) }}<br>
+        {{ form_row(form.avatar, {'label' : "Profil pic", 'attr' : {'placeholder': "Votre photo de profil"}}) }}<br>
+        <button class="btn-roun-shadow btn btn-success">Create an account</button>
+
+        {{ form_end(form) }}
+    </div><br>
+</div>
 
 {% endblock %}
 {% block javascripts %}
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous">
-</script>
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
 <script src="{{ asset('assets/js/addFileName.js') }}"></script>
 {% endblock %}

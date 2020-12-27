@@ -64,7 +64,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/logout", name="security_logout")
+     * @Route("/logout", name="security_logout",methods="POST")
      */
     public function logout(){}
 
@@ -157,7 +157,7 @@ class SecurityController extends AbstractController
             //add flash mess
             $this->addFlash('message', 'Password updated');
 
-            return $this->redirectToRoute('/login');
+            return $this->redirectToRoute('security_login');
         }else {
             return $this->render('security/resetPassword.html.twig', ['token' => $token]);
         }

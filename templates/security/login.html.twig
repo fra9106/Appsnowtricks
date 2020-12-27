@@ -7,21 +7,33 @@
     {{ message }}
 </div>
 {% endfor %}
-<div class="container mt-4 text-center"><br>
-    <h1>Login</h1><br><br><br><br>
-<form action="{{ path('security_login') }}" method="post">
-    <div class="form-group">
-        <input type="text" placeholder="email" required name="_username" class="form-control">
-    </div><br><br>
-    <div class="form-group">
-        <input type="password" placeholder="Password" required name="_password" class="form-control">
+{% for message in app.flashes('danger') %}
+<div class="alert alert-danger text-center" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+{% for message in app.flashes('warning') %}
+<div class="alert alert-warning text-center" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+<div class="container my-5 text-center"><br>
+    <h1 class="my-5">Login</h1>
+    <div class="border py-5 px-5">
+        <form action="{{ path('security_login') }}" method="post">
+            <div class="form-group">
+                <input type="text" placeholder="email" required name="_username" class="form-control">
+            </div>
+            <div class="form-group my-5">
+                <input type="password" placeholder="Password" required name="_password" class="form-control">
+            </div>
+            <div class="form-group my-2">
+                <a href="{{ path('app_forgotten_password') }}">Forgot Password ?</a>
+            </div>
+            <div class="form-group my-5">
+                <button type="submit" class="btn-roun-shadow btn btn-success">Login !</button>
+            </div>
+        </form>
     </div><br><br><br><br>
-    <div class="form-group">
-        <a href="{{ path('app_forgotten_password') }}">Forgot Password ?</a>
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-success">Login !</button>
-    </div><br><br><br><br>
-</form>
 </div>
 {% endblock %}

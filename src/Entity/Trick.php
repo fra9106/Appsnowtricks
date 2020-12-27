@@ -94,7 +94,7 @@ class Trick
     private $comments;
 
     /**
-     * @ORM\OneToMany(targetEntity=TrickLike::class, mappedBy="trick")
+     * @ORM\OneToMany(targetEntity=TrickLike::class, mappedBy="trick", cascade ={"persist"}, orphanRemoval=true)
      */
     private $likes;
 

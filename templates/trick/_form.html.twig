@@ -1,8 +1,6 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-
-    {% if app.request.attributes.get('_route') == 'trick_edit' %}
-    
-    {% endif %}
-    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_widget(form) }}
+{% if app.request.attributes.get('_route') == 'trick_edit' %}
+{% endif %}
+<button class="btn-roun-shadow btn btn-success">{{ button_label|default('Add trick !') }}</button>
 {{ form_end(form) }}

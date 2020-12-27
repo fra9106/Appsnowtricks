@@ -3,15 +3,15 @@
 {% form_theme form _self %}
 {% block body %}
 
-{{ form_start(form, { "attr": { "class": "form-group"} }) }}
+{{ form_start(form) }}
 
 <div class="container text-center border">
     <h2 class="title-show mt-2">{{ trick.name }}</h2>
     {% if trick is not empty %}
     {% for image in trick.images %}
     {% if loop.first %}
-    <div class="edit-image-poster mt-4">
-        <img class="image-trick rounded mb-2" src="{{ asset('assets/uploads/images/' ~ image.path) }}" alt="Image"
+    <div class="edit-image-poster-icons mt-4">
+        <img class="image-trick image-trick-poster rounded mb-2" src="{{ asset('assets/uploads/images/' ~ image.path) }}" alt="Image"
             height="100" width="150">
         <div class="bt-edit-poster">
             <a href="" type="button" class="btn-delete-image btn btn-danger fas fa-trash-alt"></a>
@@ -20,8 +20,8 @@
     </div>
     {% endif %}
     {% else %}
-    <div class="edit-image-poster mt-4">
-        <img class="image-trick rounded mx-2" src="{{ asset('assets/img_default/460.jpg') }}" alt="Image">
+    <div class="edit-image-poster-icons">
+        <img class="image-trick image-trick-poster rounded mx-2" src="{{ asset('assets/img_default/460.jpg') }}" alt="Image">
         <div class="bt-edit-poster">
             <a href="" type="button" class="btn-delete-image btn btn-danger fas fa-trash-alt"></a>
             <a href="" class="js-modal-image btn btn-primary fas fa-pencil-alt"></a>
@@ -29,15 +29,15 @@
     </div>
     {% endfor %}
     {% endif %}
-    <input type="button" class="see btn btn-success mt-2 mb-2" value="See Medias">
+    <input type="button" class="btn-roun-shadow see btn btn-success mt-2 mb-2" value="See Medias">
     <div class="container media-n my-4 ">
         <div class="row justify-content-center">
             {% for image in trick.images %}
             {% if not loop.first %}
-            <div class="edit-image-mini d-flex justify-content-center my-4">
-                <img class="mb-1 image-tricks rounded ml-4" src="{{ asset('assets/uploads/images/' ~ image.path) }}"
+            <div class="d-flex justify-content-center my-4">
+                <img class="image-trick-mini mb-1 image-tricks rounded ml-4" src="{{ asset('assets/uploads/images/' ~ image.path) }}"
                     alt="Image" width="150">
-                <div class="image-tricks-icons align-self-center">
+                <div class="image-trick-icons align-self-center">
                     <a href="" class=" btn-delete-image btn btn-danger fas fa-trash-alt"></a>
                     <a href="" class=" js-modal-image btn btn-primary fas fa-pencil-alt"></a>
                 </div>
@@ -47,14 +47,14 @@
         </div>
     </div>
     {{ form_row(form.images) }}
-    {{ form_row(form.videos) }}
+    
     {% if trick.videos is not empty %}
     <div class="container media-n">
         <div class="row justify-content-center">
             {% for video in trick.videos %}
             <div
-                class="edit-video-mini d-flex text-align-inline align-items-center justify-content-center my-4">
-                <iframe class="mb-1 video-tricks rounded" src="{{ video.url }}" frameborder="0"
+                class="edit-trick-mini-video d-flex text-align-inline align-items-center justify-content-center my-4">
+                <iframe class="video-trick-mini mb-1 video-tricks rounded" src="{{ video.url }}" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
                 <div class="video-trick-icons align-self-center ">
@@ -66,8 +66,9 @@
         </div>
     </div>
     {% endif %}
-    {{ include('trick/_form.html.twig', {'button_label': 'Update'}) }}
-    <a href="{{ path('trick_index') }}" class="btn btn-secondary">back to list</a>
+    {{ form_row(form.videos) }}
+    {{ include('trick/_form.html.twig', {'button_label': 'Update'}) }}<br><br>
+    <a href="{{ path('trick_index') }}" class="btn-roun-shadow btn btn-secondary">back to list</a><br><br>
 </div>
 
 {% endblock %}
@@ -80,15 +81,15 @@
 {% block _trick_images_row %}
 {{ form_widget(form) }}
 <div class=>
-    <button type="button" class="btn btn-primary btn-add-images mt-4" id="add-images">Add Picture</button>
+    <button type="button" class="btn-roun-shadow btn btn-primary btn-add-images mt-4" id="add-images">Add Picture</button>
 </div><br>
 {% endblock %}
 
 {% block _trick_images_entry_widget %}
 <div class="modal-none" id="block_{{id}}">
-    <div class="edit-file-form">
+    <div class="edit-image-form-entry">
         {{ form_widget(form.file)}}
-        <button type="button" class="btn-delete-image btn btn-danger fas fa-trash-alt" data-action="delete" data-target="#block_{{id}}">
+        <button type="button" class="btn-delete-image btn btn-danger fas fa-trash-alt" data-action="delete" data-target="#block_{{id}}" >
         </button>
     </div>
 </div>
@@ -96,12 +97,12 @@
 
 {% block _trick_videos_row %}
 {{ form_widget(form) }}
-<button type="button" class="btn btn-primary btn-add-videos" id="add_videos">Add video</button><br><br>
+<button type="button" class="btn-roun-shadow btn btn-primary btn-add-videos" id="add_videos">Add video</button><br><br>
 {% endblock %}
 
 {% block _trick_videos_entry_widget %}
 <div class="modal-none" id="block_{{id}}">
-    <div class="edit-url-video-form">
+    <div class="edit-video-form-entry">
         <div class="row">
             <div class="col-10">
                 <div class="row">
@@ -133,5 +134,6 @@
 <script src="{{ asset('assets/js/edit.js') }}"></script>
 <script src="{{ asset('assets/js/addFileName.js') }}"></script>
 <script src="{{ asset('assets/js/loadMoreTricks.js') }}"></script>
-<script src="{{ asset('assets/js/handleFormPics.js') }}"></script>
+<script src="{{ asset('assets/js/handleForm.js') }}"></script>
+<script src="{{ asset('assets/js/editModal.js') }}"></script>
 {% endblock %}

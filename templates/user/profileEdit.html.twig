@@ -18,7 +18,7 @@
             {% endif %}
             <br>
             {% if user.tricks | length > 0 %}
-            <a href="{{ path('app_get_trick') }}"><span class="badge badge-primary">{{user.tricks | length}} Tricks published</span></a>
+            <a href="{{ path('app_get_trick') }}"><span class="badge badge-success badge-shadw">{{user.tricks | length}} Tricks published</span></a>
             {% else %}
             <span class="badge badge-primary">You have no trick published</span><br><br>
             {% endif %}
@@ -27,7 +27,7 @@
         {{ form_start(form) }}
         {{ form_widget(form) }}<br><br>
 
-        <button type="submit" class="btn btn-primary">Update modification</button>
+        <button type="submit" class="btn-roun-shadow btn btn-primary">Update modification</button>
         
         {{ form_end(form) }}<br><br>
         

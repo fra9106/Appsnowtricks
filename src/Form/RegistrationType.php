@@ -19,7 +19,6 @@ class RegistrationType extends AbstractType
             ->add('password', PasswordType::class)
             ->add('confirm_password', PasswordType::class)
             ->add('avatar', FileType::class, [
-                
                 'label' => 'Add your Profil Pic',
                 'required' => false,
                 ])

@@ -22,6 +22,7 @@ security:
                 check_path: security_login
 
             logout:
+                csrf_token_generator: Symfony\Component\Security\Csrf\CsrfTokenManagerInterface
                 path: security_logout
                 target: /
 

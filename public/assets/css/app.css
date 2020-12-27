@@ -60,12 +60,34 @@ h1,h2,h3,h4,h5,p {
 }
 
 .btn {
-  border-radius: 20px !important;
+  border-radius: 25px !important;
   text-decoration: none;
+}
+
+.btn-roun-shadow {
+  box-shadow: 5px 10px 20px -10px rgba(0,0,0,0.75) !important;
+  border-radius: 25px !important;
 }
 
 .slider {
   background: url('../img/pic_home.jpg') center center/cover no-repeat;
+}
+
+.image-trick-mini {
+  box-shadow: 5px 10px 20px -10px rgba(0,0,0,0.75) !important;
+}
+
+.image-trick-poster {
+  box-shadow: 5px 10px 20px -10px rgba(0,0,0,0.75) !important;
+}
+
+.video-trick-mini {
+  box-shadow: 5px 10px 20px -10px rgba(0,0,0,0.75) !important;
+}
+
+.badge-shadw {
+  box-shadow: 5px 10px 20px 5px rgba(93, 125, 185, 0.75) !important;
+  border-radius: 25px !important;
 }
 
 .masthead {
@@ -101,6 +123,7 @@ h1,h2,h3,h4,h5,p {
 
 .profile {
   border-radius: 50%;
+  box-shadow: 5px 10px 20px 5px rgba(93, 125, 185, 0.75) !important;
 }
 
 .mini-profile {

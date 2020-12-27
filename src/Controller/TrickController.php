@@ -137,6 +137,7 @@ class TrickController extends AbstractController
         
                 $image->setTrick($trick);
                 $this->manager->persist($image);
+                
             }
 
             $videos = $form['videos']->getData();

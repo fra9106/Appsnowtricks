@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\VideoRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -54,13 +53,14 @@ class Video
 
     public function getUrl(): ?string
     {
-        return $this->url;
+        return str_ireplace("watch?v=","embed/", $this->url);
+        //str_split('&') [0];
     }
-    
+
     public function setUrl(string $url): self
     {
         $this->url = $url;
-
+        
         return $this;
     }
 
