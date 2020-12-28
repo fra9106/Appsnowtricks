@@ -8,14 +8,15 @@ use App\Form\RegistrationType;
 use App\Form\ResetPasswordType;
 use App\Form\PasswordUpdateType;
 use App\Repository\UserRepository;
-use App\Repository\TrickRepository;
 use Symfony\Component\Form\FormError;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 
@@ -64,14 +65,14 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/logout", name="security_logout",methods="POST")
+     * @Route("/logout", name="security_logout", methods="POST")
      */
     public function logout(){}
 
     /**
      * @Route("/forgottenPass", name="app_forgotten_password")
      */
-    public function forgottenPass(Request $request, UserRepository $userRepository, \Swift_Mailer $mailer, TokenGeneratorInterface $tokenGenerator)
+    public function forgottenPass(Request $request, UserRepository $userRepository, MailerInterface $mailer, TokenGeneratorInterface $tokenGenerator)
     {
         //create form
         $form = $this->createForm(ResetPasswordType::class);
@@ -109,13 +110,15 @@ class SecurityController extends AbstractController
             $url = $this->generateUrl('app_reset_password', array('token' => $token), UrlGeneratorInterface::ABSOLUTE_URL);
 
             // On génère l'e-mail
-            $message = (new \Swift_Message('Mot de passe oublié'))
-            ->setFrom('contact@monpersoweb.fr')
-            ->setTo($user->getMail())
-            ->setBody(
-            "<p>Bonjour,</p>Pour votre demande de réinitialisation de mot de passe pour le site Mon persoweb.fr. Veuillez cliquer sur le lien suivant : " . $url,
-            'text/html'
-            );
+            $message = (new TemplatedEmail())
+            ->from('noreply@monpersoweb.fr')
+            ->to($user->getMail())
+            ->htmlTemplate('email/reset_password.html.twig')
+            ->context([
+                'url' => $url,
+                'user' => $user,
+                'expiration_date' => new \DateTime('+1 hour')
+            ]);
             // we send mail
             $mailer->send($message);
 
