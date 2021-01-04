@@ -2,7 +2,7 @@
 // on récupère ttes les classes correspondantes aux boutons de suppression des images
 const btnDeleteImage = document.querySelectorAll('.btn-delete-image.fas.fa-trash-alt');
 for (let i = 0; i < btnDeleteImage.length; i++) {// on boucle dessus...  
-    btnDeleteImage[i].setAttribute("href", "#modal-image-" + i);//pour recupérer le modal de chq image
+    btnDeleteImage[i].setAttribute("href", "#modal-image-" + i);//pour recupérer la modal de chq image
     console.log(btnDeleteImage);
 }
 

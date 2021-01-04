@@ -10,8 +10,8 @@ function onClickBtnLike(e) {
             response.json().then(function (data) {
 
                 const likes = data.likes;
-                spanCount.textContent = likes;
-
+                spanCount.textContent = likes;//nombre de likes
+                console.log(likes);
                 if (icon.classList.contains('fas')) {
                     icon.classList.replace('fas', 'far');
                 } else {
@@ -25,7 +25,7 @@ function onClickBtnLike(e) {
 
 }
 
-document.querySelectorAll('a.js_like').forEach(function (link) {
+document.querySelectorAll('a.js-like').forEach(function (link) {
     link.addEventListener('click', onClickBtnLike);
 })
 

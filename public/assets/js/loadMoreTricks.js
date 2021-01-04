@@ -14,14 +14,14 @@ window.onload = () => {
             alert("No more!");
         }
     });
+};
 
-
-    $(".media-n").hide();
+    $(".media-none").hide();
     $(".bt-edit-poster").hide();
     $('.see').click(function () {
-        $(".media-n").toggle();
+        $(".media-none").toggle();
         $(".bt-edit-poster").toggle();
         $(this).val($(this).val() == 'Not See Medias' ? 'See Medias' : 'Not See Medias');
     });
 
-};
+

@@ -38,7 +38,7 @@
                                     class="btn-roun-shadow btn btn-primary fas fa-pencil-alt"></i></a>
                             {{ include('trick/_delete_form.html.twig') }}
                             {% endif %}
-                            <a href="{{ path('trick_like', {'slug': trick.slug}) }}" class="btn btn-link js_like">
+                            <a href="{{ path('trick_like', {'slug': trick.slug}) }}" class="btn btn-link js-like">
                                 {% if app.user and trick.isLikedByUser(app.user) %}
                                 <i class="fas fa-thumbs-up"></i>
                                 {% else %}

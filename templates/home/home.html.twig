@@ -2,7 +2,16 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-
+{% for message in app.flashes('message') %}
+<div class="alert alert-success text-center" role="alert">
+    {{ message}}
+</div>
+{% endfor %}
+{% for message in app.flashes('danger') %}
+<div class="alert alert-danger text-center" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
 <header class=" masthead slider text-white text-center">
     <div class="container align-items-center ">
         <p class="hook-text">Snowtricks a community for snowboard enthusiasts</p>

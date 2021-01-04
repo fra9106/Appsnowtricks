@@ -19,6 +19,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
@@ -55,19 +56,6 @@ class SecurityController extends AbstractController
             'form' => $form->createView()
         ]);
     }
-
-    /**
-     * @Route("/login", name="security_login")
-     */
-    public function login()
-    {
-        return $this->render('security/login.html.twig');
-    }
-
-    /**
-     * @Route("/logout", name="security_logout", methods="POST")
-     */
-    public function logout(){}
 
     /**
      * @Route("/forgottenPass", name="app_forgotten_password")
@@ -196,5 +184,31 @@ class SecurityController extends AbstractController
             'form' => $form->createView()
         ]);
 
+    }
+
+    /**
+     * @Route("/login", name="app_login")
+     */
+    public function login(AuthenticationUtils $authenticationUtils): Response
+    {
+        if ($this->getUser()) {
+            $this->addFlash('danger', 'You are already logged in !');
+             return $this->redirectToRoute('homepage');
+        }
+
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+    }
+
+    /**
+     * @Route("/logout", name="app_logout")
+     */
+    public function logout()
+    {
+        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }    
 }
