@@ -11,6 +11,7 @@ use App\Service\Paginator;
 use App\Service\FileUploader;
 use App\Security\Voter\TrickVoter;
 use App\Repository\TrickRepository;
+use App\Repository\CategoryRepository;
 use App\Repository\TrickLikeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Filesystem\Filesystem;
@@ -43,6 +44,25 @@ class TrickController extends AbstractController
     {
         return $this->render('trick/index.html.twig', [
             'tricks' => $trickRepository->findBy([], ['creation_date' => 'DESC'])
+        ]);
+    }
+
+    /**
+     * @Route("/{category}", name="trick_category")
+     */
+    public function category($category, CategoryRepository $repo): Response
+    {
+        $cat = $repo->findOneBy([
+            'category' => $category
+        ]);
+
+        if(!$cat){
+            throw $this->createNotFoundException("Cette catégorie n'existe pas !");
+        }
+
+        return $this->render('trick/category.html.twig', [
+            'category' => $category,
+            'cat' => $cat
         ]);
     }
 

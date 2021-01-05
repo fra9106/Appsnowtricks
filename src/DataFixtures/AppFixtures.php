@@ -67,9 +67,9 @@ class AppFixtures extends Fixture
         $category4->setCategory("Old School");
         $manager->persist($category4);
         
-        $category4 = new Category();
-        $category4->setCategory("For absolute beginner");
-        $manager->persist($category4);
+        $category5 = new Category();
+        $category5->setCategory("For absolute beginner");
+        $manager->persist($category5);
         
         $video1 = new Video();
         $video1
@@ -246,7 +246,7 @@ class AppFixtures extends Fixture
         Steak-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category1)
         ->setUser($user)
         
         ->addImage($image1)
@@ -274,7 +274,7 @@ class AppFixtures extends Fixture
         Chicken-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category1)
         ->setUser($user1)
         
         ->addImage($image2)
@@ -302,7 +302,7 @@ class AppFixtures extends Fixture
         Roast-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category1)
         ->setUser($user)
         
         ->addImage($image3);
@@ -330,7 +330,7 @@ class AppFixtures extends Fixture
         Turkey-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category1)
         ->setUser($user1)
         
         ->addImage($image4)
@@ -470,7 +470,7 @@ class AppFixtures extends Fixture
         Ham-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category3)
         ->setUser($user)
         
         ->addImage($image9)
@@ -492,7 +492,7 @@ class AppFixtures extends Fixture
         Veal-Cutlet-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category3)
         ->setUser($user)
         
         ->addImage($image10)
@@ -520,7 +520,7 @@ class AppFixtures extends Fixture
         Omelet-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category3)
         ->setUser($user)
         
         ->addImage($image11)
@@ -548,7 +548,7 @@ class AppFixtures extends Fixture
         Salad-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category3)
         ->setUser($user2)
         
         ->addImage($image13)
@@ -570,7 +570,7 @@ class AppFixtures extends Fixture
         Pancake-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category4)
         ->setUser($user)
         
         ->addImage($image14)
@@ -598,7 +598,7 @@ class AppFixtures extends Fixture
         Tartiflet-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category4)
         ->setUser($user)
         
         ->addImage($image15);
@@ -620,7 +620,7 @@ class AppFixtures extends Fixture
         Cucumber-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category4)
         ->setUser($user2)
         
         ->addImage($image12);
@@ -648,7 +648,7 @@ class AppFixtures extends Fixture
         Pizza-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category5)
         ->setUser($user2)
         
         ->addImage($image16);
@@ -676,7 +676,7 @@ class AppFixtures extends Fixture
         Burger-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category5)
         ->setUser($user2)
         
         ->addImage($image17);
@@ -698,7 +698,7 @@ class AppFixtures extends Fixture
         Milkshake-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category5)
         ->setUser($user)
         
         ->addImage($image18);
@@ -726,7 +726,7 @@ class AppFixtures extends Fixture
         Cookie-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category4)
         ->setUser($user1)
         
         ->addImage($image19);
@@ -748,7 +748,7 @@ class AppFixtures extends Fixture
         Steackhouse-trick ")
         ->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mi nibh, ultricies et odio eu, suscipit accumsan ligula. Donec ut elit tortor. Nullam non placerat tellus, ac tempus ipsum. Quisque venenatis metus non eros congue, gravida fermentum leo aliquet. Morbi eget dolor eget purus tincidunt efficitur a non sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis nec urna eget lorem consectetur varius convallis in nisl. Aliquam luctus augue non sapien pulvinar accumsan. Quisque non arcu suscipit, efficitur sapien sit amet, iaculis odio. Nulla aliquam risus molestie, semper felis sit amet, dignissim ante. In maximus magna vitae quam ullamcorper consectetur. Cras malesuada et justo eu finibus. Nunc sodales gravida erat. Nunc eget feugiat nibh, et dapibus neque. Donec sagittis metus id congue condimentum. Morbi vitae eros quis erat pellentesque malesuada. Fusce a lectus nec augue euismod efficitur. Phasellus condimentum ante dignissim, tempor massa non, fermentum felis. Pellentesque et sapien in odio imperdiet auctor. In hac habitasse platea dictumst. Suspendisse nulla quam, placerat quis volutpat vitae, volutpat a nulla. Donec molestie eros non arcu cursus pellentesque. Etiam non vulputate felis. Nam varius commodo neque, at molestie elit iaculis sit amet. Proin id quam turpis. Praesent molestie felis ut faucibus rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus.")
         ->setCreationDate(new \DateTime())
-        ->setCategory($category2)
+        ->setCategory($category5)
         ->setUser($user2)
         
         ->addImage($image20);
