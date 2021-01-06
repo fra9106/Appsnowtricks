@@ -78,7 +78,7 @@ class SecurityController extends AbstractController
                     //add Flash message
                     $this->addFlash('danger', 'unknown email address');
                     //return at login page
-                    return $this->redirectToRoute('security_login');
+                    return $this->redirectToRoute('app_login');
                     }
             //We generate a token
             $token = $tokenGenerator->generateToken();
@@ -91,7 +91,7 @@ class SecurityController extends AbstractController
                 $em->flush();
             } catch (\Exception $e) {
                 $this->addFlash('warning', 'An error has occurred : '. $e->getMessage());
-                return $this->redirectToRoute('security_login');
+                return $this->redirectToRoute('app_login');
             }
 
             //We generate the password reset url 
@@ -112,7 +112,7 @@ class SecurityController extends AbstractController
 
             //addFlash confim mess
             $this->addFlash('message', 'Password reset mail sent !');
-            return $this->redirectToRoute('security_login');
+            return $this->redirectToRoute('app_login');
         }
 
         //We send the form to the view 
@@ -131,7 +131,7 @@ class SecurityController extends AbstractController
         if ($user === null) {
             //add flash mess
             $this->addFlash('danger', 'Token Inconnu');
-            return $this->redirectToRoute('security_login');
+            return $this->redirectToRoute('app_login');
         }
 
         //if form send post
@@ -148,7 +148,7 @@ class SecurityController extends AbstractController
             //add flash mess
             $this->addFlash('message', 'Password updated');
 
-            return $this->redirectToRoute('security_login');
+            return $this->redirectToRoute('app_login');
         }else {
             return $this->render('security/resetPassword.html.twig', ['token' => $token]);
         }
