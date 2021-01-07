@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    <img src="{{ asset('assets/img/logosnow.png') }}" alt="logo Snowtricks" class="logo">
+  </a>
+  <button class="navbar-toggler ml-auto mt-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto mr-4 d-md-flex">
+      <li class="nav-item active d-flex ">
+        <a class="nav-link text-primary" href="/">Home <span class="sr-only">(current)</span></a>
+        {% if not app.user %}
+        <span class="pipe nav-link text-dark">|</span>
+        {% endif %}
+      </li>
+      {% if not app.user %}
+      <li class="nav-item d-flex">
+        <a class="nav-link" href="{{ path('trick_index')}}">Tricks</a>
+        <span class="pipe nav-link text-dark">|</span>
+      </li>
+      {% else %}
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="tricksLink">Tricks</a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tricksLink">
+          <a href="{{ path('trick_new')}}" class="dropdown-item">Add Trick</a>
+
+          <a href="{{ path('app_get_trick')}}" class="dropdown-item">{{app.user.pseudo}} Tricks</a>
+          <a href="{{ path('trick_index')}}" class="dropdown-item">All Tricks</a>
+          <div class="dropdown-divider"></div>
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+            aria-expanded="false">catégories</a>
+          <div class="dropdown-menu">
+            <a class="nav-link" href="{{ path('trick_category', {'category': 'Regular'}) }}">Regular</a>
+            <a class="nav-link" href="{{ path('trick_category', {'category': 'Rotations'}) }}">Rotations</a>
+            <a class="nav-link" href="{{ path('trick_category', {'category': 'Straight Airs'}) }}">Straight Airs</a>
+            <a class="nav-link" href="{{ path('trick_category', {'category': 'Old School'}) }}">Old School</a>
+            <a class="nav-link" href="{{ path('trick_category', {'category': 'For absolute beginner'}) }}">For absolute
+              beginner</a>
+          </div>
+        </div>
+      </li>
+      {% endif %}
+      {% if not app.user %}
+      <li class="nav-item d-flex">
+        <a class="nav-link" href="{{ path('app_login') }}">Sign in</a>
+        <span class="pipe nav-link text-dark">|</span>
+      </li>
+      <li class="nav-item d-flex">
+        <a class="nav-link" href="{{ path('security_registration') }}">Sign up</a>
+      </li>
+      {% else %}
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="profileLink">profile</a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileLink">
+          {% if app.user.avatar %}
+          <a class="nav-link" href="{{ path('app_edit_profile') }}">
+            <img class="mini-profile" src="{{ asset('assets/avatars/img_profile/' ~ app.user.avatar) }}">
+            {{app.user.pseudo}} edit</a>
+          {% else %}
+          <a class="nav-link" href="{{ path('app_edit_profile') }}">
+            <img class="mini-profile" src="{{ asset('assets/avatars/default.jpg') }}">
+            {{app.user.pseudo}} edit</a>
+          {% endif %}
+          <div class="dropdown-divider"></div>
+          <a class="nav-link" href="{{ path('app_profile_user') }}">{{app.user.pseudo}} profile</a>
+          <a class="nav-link" href="{{ path('app_update_password') }}">Update Password</a>
+        </div>
+      </li>
+      <li class="nav-item d-flex">
+        <a class="nav-link" href="#"
+          onclick="event.preventDefault(); document.getElementById('js-logout-form').submit();">Logout</a>
+      </li>
+      <form id="js-logout-form" action="{{ path('app_logout') }}" method="POST" style="display:none;">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('logout') }}">
+      </form>
+      {% endif %}
+  </div>
+</nav>

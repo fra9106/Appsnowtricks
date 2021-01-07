@@ -1,20 +1,26 @@
 {% extends 'base.html.twig' %}
-{% block title %}Trick-user{% endblock %}
+
+{% block title %}{% endblock %}
+
 {% block body %}
+
+{{ include('home/_home.html.twig') }}
+
 <div class="margout row">
     <div class="col-12 mb-4"><br><br>
-        <h1 class="title text-center">Tricks de {{user.pseudo}}</h1><br><br>
+        <h1 class="title text-center">Catégorie : {{cat.category }}</h1><br><br>
     </div>
-    {% for trick in user.tricks %}
-        <div class="col-lg-2 col-sm-12 col-md-6 my-3 m-4  ">
-            <div class="card shadow">
-                <a href="{{ path('comment_new', {'slug': trick.slug}) }}">
-                <div class="col-12 p-2" >
+    {% for trick in cat.tricks %}
+    <div class="col-lg-2 col-sm-12 col-md-6 my-3 m-4  ">
+        <div class="card shadow">
+            <a href="{{ path('comment_new', {'slug': trick.slug}) }}">
+                <div class="col-12 p-2">
                     <div class="mw-100 overflow-hidden">
                         {% if trick is not empty %}
                         {% for image in trick.images %}
                         {% if loop.first %}
-                        <img class="h-100 w-100" src="{{ asset('assets/uploads/images/' ~ image.path) }}" alt="{{ trick.name }}">
+                        <img class="h-100 w-100" src="{{ asset('assets/uploads/images/' ~ image.path) }}"
+                            alt="{{ trick.name }}">
                         {% endif %}
                         {% else %}
                         <img class="h-100 w-100" src="{{ asset('assets/img_default/460.jpg') }}" alt="logoSnow">
@@ -24,15 +30,16 @@
                     <div class="d-flex col-12 p-3 name-trick">
                         <div class="d-flex text-align-inline">{{ trick.name }}
                             {% if is_granted('edit', trick) %}
-                            <a class="px-2" href="{{ path('trick_edit', {'slug': trick.slug}) }}"><i class="fas fa-pen "></i></a>
+                            <a class="px-2" href="{{ path('trick_edit', {'slug': trick.slug}) }}"><i
+                                    class="fas fa-pen "></i></a>
                             {{ include('trick/_delete_form.html.twig') }}
                             {% endif %}
                         </div>
                     </div>
-                </div> 
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}

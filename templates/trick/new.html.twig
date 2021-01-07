@@ -2,39 +2,40 @@
 {% block title %}New Trick{% endblock %}
 {% form_theme form _self %}
 {% block body %}
-<div class="container mt-4 text-center"><br>
-    <h1>Create new Trick</h1>
-    <section class="add-trick">
+<div class="container text-center"><br>
+	<h1>Create new Trick</h1>
+	<section class="add-trick my-4">
 		{{ include('trick/_form.html.twig') }}
 	</section>
-    <a href="{{ path('trick_index') }}">back to list</a>
+	<a href="{{ path('trick_index') }}">back to list</a>
 </div>
 {% endblock %}
-{% block form_row %} 
-	<div class="form-group">
-		{#{{dump()}}#}
-		{{ form_label(form) }}
-		{{ form_widget(form) }}
-	</div>
+{% block form_row %}
+<div class="form-group my-4">
+	{#{{dump()}}#}
+	{{ form_label(form) }}
+	{{ form_widget(form) }}
+</div>
 {% endblock %}
 {% block _trick_images_row %}
-	<h3>Add pictures</h3>
-    {{ form_widget(form) }}
-    <div class= >
-		<button type="button" class="btn btn-primary btn-add-images" id="add-images">Add Picture</button>
-	</div>
+<h3>Add pictures</h3>
+{{ form_widget(form) }}
+<div class=>
+	<button type="button" class="btn-roun-shadow btn btn-primary btn-add-images my-4" id="add-images">Add Picture</button>
+</div>
 {% endblock %}
 {% block _trick_images_entry_widget %}
 <div id="block_{{id}}">
 	{{ form_widget(form.file)}}
-	<button type="button" data-action="delete" data-target="#block_{{id}}" class="btn btn-danger fas fa-trash-alt"></button>
+	<button type="button" data-action="delete" data-target="#block_{{id}}"
+		class="btn btn-danger fas fa-trash-alt"></button>
 </div>
 
 {% endblock %}
 {% block _trick_videos_row %}
-	<h3>Add videos</h3>
-	{{ form_widget(form) }}
-	<button type="button" class="btn btn-primary btn-add-videos" id="add_videos">Add video</button><br><br>
+<h3>Add videos</h3>
+{{ form_widget(form) }}
+<button type="button" class="btn-roun-shadow btn btn-primary btn-add-videos my-4" id="add_videos">Add video</button><br><br>
 {% endblock %}
 {% block _trick_videos_entry_widget %}
 <div id="block_{{id}}">
@@ -50,15 +51,22 @@
 			</div>
 		</div>
 		<div class="col-2">
-			<button type="button" data-action="delete" data-target="#block_{{id}}" class="btn btn-danger fas fa-trash-alt"></button>
+			<button type="button" data-action="delete" data-target="#block_{{id}}"
+				class="btn btn-danger fas fa-trash-alt"></button>
 		</div>
 	</div>
 </div>
 {% endblock %}
 {% block javascripts %}
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="{{ asset('assets/js/handleFormPics.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<script src="{{ asset('assets/js/handleForm.js') }}"></script>
 <script src="{{ asset('assets/js/addFileName.js') }}"></script>
 {% endblock %}

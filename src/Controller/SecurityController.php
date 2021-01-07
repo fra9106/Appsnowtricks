@@ -8,16 +8,18 @@ use App\Form\RegistrationType;
 use App\Form\ResetPasswordType;
 use App\Form\PasswordUpdateType;
 use App\Repository\UserRepository;
-use App\Repository\TrickRepository;
 use Symfony\Component\Form\FormError;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
@@ -56,22 +58,9 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/login", name="security_login")
-     */
-    public function login()
-    {
-        return $this->render('security/login.html.twig');
-    }
-
-    /**
-     * @Route("/logout", name="security_logout")
-     */
-    public function logout(){}
-
-    /**
      * @Route("/forgottenPass", name="app_forgotten_password")
      */
-    public function forgottenPass(Request $request, UserRepository $userRepository, \Swift_Mailer $mailer, TokenGeneratorInterface $tokenGenerator)
+    public function forgottenPass(Request $request, UserRepository $userRepository, MailerInterface $mailer, TokenGeneratorInterface $tokenGenerator)
     {
         //create form
         $form = $this->createForm(ResetPasswordType::class);
@@ -109,13 +98,15 @@ class SecurityController extends AbstractController
             $url = $this->generateUrl('app_reset_password', array('token' => $token), UrlGeneratorInterface::ABSOLUTE_URL);
 
             // On génère l'e-mail
-            $message = (new \Swift_Message('Mot de passe oublié'))
-            ->setFrom('contact@monpersoweb.fr')
-            ->setTo($user->getMail())
-            ->setBody(
-            "<p>Bonjour,</p>Pour votre demande de réinitialisation de mot de passe pour le site Mon persoweb.fr. Veuillez cliquer sur le lien suivant : " . $url,
-            'text/html'
-            );
+            $message = (new TemplatedEmail())
+            ->from('noreply@monpersoweb.fr')
+            ->to($user->getMail())
+            ->htmlTemplate('email/reset_password.html.twig')
+            ->context([
+                'url' => $url,
+                'user' => $user,
+                'expiration_date' => new \DateTime('+1 hour')
+            ]);
             // we send mail
             $mailer->send($message);
 
@@ -157,7 +148,7 @@ class SecurityController extends AbstractController
             //add flash mess
             $this->addFlash('message', 'Password updated');
 
-            return $this->redirectToRoute('/login');
+            return $this->redirectToRoute('security_login');
         }else {
             return $this->render('security/resetPassword.html.twig', ['token' => $token]);
         }
@@ -193,5 +184,31 @@ class SecurityController extends AbstractController
             'form' => $form->createView()
         ]);
 
+    }
+
+    /**
+     * @Route("/login", name="app_login")
+     */
+    public function login(AuthenticationUtils $authenticationUtils): Response
+    {
+        if ($this->getUser()) {
+            $this->addFlash('danger', 'You are already logged in !');
+             return $this->redirectToRoute('homepage');
+        }
+
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+    }
+
+    /**
+     * @Route("/logout", name="app_logout")
+     */
+    public function logout()
+    {
+        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }    
 }
