@@ -1,9 +1,15 @@
-body,html {
+body,
+html {
   margin: 0;
   padding: 0;
 }
 
-h1,h2,h3,h4,h5,p {
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -12,29 +18,83 @@ h1,h2,h3,h4,h5,p {
   width: 60%;
 }
 
+i.wi {
+  font-size: 3em;
+  line-height: 50px;
+  color: grey;
+}
+
+.clear {
+  background-image: url('../images/soleil.jpg');
+}
+
+.clouds {
+  background-image: url('../images/nuageux.jpg');
+}
+
+.rain {
+  background-image: url('../images/pluie.jpg');
+}
+
+.snow {
+  background-image: url('../images/neige.jpg');
+}
+
+.fog {
+  background-image: url('../images/fog.jpg');
+}
+
+.mist {
+  background-image: url('../images/mist.jpg');
+}
+
+body.modal {
+  background-position: center;
+  background-size: cover;
+}
+
+.cart {
+  box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.30);
+}
+
+.winter {
+  color: rgba(33, 37, 41, 0.5);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  font-size: 1em;
+}
+
+.winterday {
+  font-size: 1.8em;
+  color: rgb(21, 21, 241);
+}
+
+.brouillard {
+  background-image: url('brouillard.jpg');
+}
+
 .pipe {
   display: none !important;
 }
 
 .navbar {
-  box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
   font-family: 'Montserrat', sans-serif;
 }
 
 .title {
-  color :grey; 
+  color: grey;
   text-shadow: lightblue 0.1em 0.1em 0.2em;
 }
 
 .title-show {
-  color :grey; 
+  color: grey;
   text-shadow: lightblue 0.1em 0.1em 0.2em;
 }
 
 .name-trick {
   text-decoration: underline;
   color: gray;
-  font-size: 27px; 
+  font-size: 27px;
   text-shadow: gray 0.1em 0.1em 0.2em;
   font-family: 'Montserrat', sans-serif;
 }
@@ -43,11 +103,10 @@ h1,h2,h3,h4,h5,p {
   font-size: 15px;
   position: absolute;
   margin-top: 150px;
-  color: white; 
+  color: white;
   text-shadow: black 0.1em 0.1em 0.2em;
   font-family: 'Poppins', sans-serif;
 }
-
 
 .image-tricks {
   width: 150px;
@@ -55,7 +114,7 @@ h1,h2,h3,h4,h5,p {
 }
 
 .image-trick {
-  width:100%;
+  width: 100%;
   height: auto;
 }
 
@@ -65,7 +124,7 @@ h1,h2,h3,h4,h5,p {
 }
 
 .btn-roun-shadow {
-  box-shadow: 5px 10px 20px -10px rgba(0,0,0,0.75) !important;
+  box-shadow: 5px 10px 20px -10px rgba(0, 0, 0, 0.75) !important;
   border-radius: 25px !important;
 }
 
@@ -74,15 +133,15 @@ h1,h2,h3,h4,h5,p {
 }
 
 .image-trick-mini {
-  box-shadow: 5px 10px 20px -10px rgba(0,0,0,0.75) !important;
+  box-shadow: 5px 10px 20px -10px rgba(0, 0, 0, 0.75) !important;
 }
 
 .image-trick-poster {
-  box-shadow: 5px 10px 20px -10px rgba(0,0,0,0.75) !important;
+  box-shadow: 5px 10px 20px -10px rgba(0, 0, 0, 0.75) !important;
 }
 
 .video-trick-mini {
-  box-shadow: 5px 10px 20px -10px rgba(0,0,0,0.75) !important;
+  box-shadow: 5px 10px 20px -10px rgba(0, 0, 0, 0.75) !important;
 }
 
 .badge-shadw {
@@ -142,7 +201,7 @@ h1,h2,h3,h4,h5,p {
   font-size: 20px;
 }
 
-.margout{
+.margout {
   margin-right: 0 !important;
 }
 
@@ -154,11 +213,11 @@ h1,h2,h3,h4,h5,p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   animation: fadeIn .9s both;
 }
 
-.modal-wrapper{
+.modal-wrapper {
   display: flex;
   justify-content: center;
   background-color: white;
@@ -201,23 +260,43 @@ button.js-modal-close {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes slideFromTop {
-  from { transform: translateY(-350px);}
-  to { transform: translateY(0px);}
+  from {
+    transform: translateY(-350px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
 }
 
 @keyframes slideToBot {
-  from { transform: translateY(0px);}
-  to { transform: translateY(550px);}
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(550px);
+  }
 }
 
 @media (min-width: 992px) {
@@ -252,7 +331,7 @@ button.js-modal-close {
     border-radius: 2%;
   }
 
-  .modal-wrapper{
+  .modal-wrapper {
     width: 50%;
     margin-left: 480px !important;
     margin-right: 150px !important;

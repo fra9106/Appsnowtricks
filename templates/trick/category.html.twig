@@ -1,11 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Catégorie : {{ cat.category }} {% endblock %}
 
 {% block body %}
-
 {{ include('home/_home.html.twig') }}
-
 <div class="margout row">
     <div class="col-12 mb-4"><br><br>
         <h1 class="title text-center">Catégorie : {{cat.category }}</h1><br><br>
