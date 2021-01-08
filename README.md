@@ -12,13 +12,13 @@ https://github.com/fra9106/Appsnowtricks.git
 https://getcomposer.org/download
 
 # Create your data base
-php bin/console d:d:c
+php bin/console doctrine:database:create
 
 # Execute your migration
-php bin/console d:m:m
+php bin/console doctrine:migrations:migrate
 
 # Execute your fixtures
-php bin/console d:f:l --no-interaction
+php bin/console doctrine:fixtures:load --no-interaction
 
 # And Enjoy it! ;=)
 ```

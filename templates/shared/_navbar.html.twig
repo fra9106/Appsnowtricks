@@ -2,7 +2,7 @@
   <a class="navbar-brand" href="/">
     <img src="{{ asset('assets/img/logosnow.png') }}" alt="logo Snowtricks" class="logo">
   </a>
-  <a class="nav-link" href="modal" data-toggle="modal" data-target="#exampleModalCenter"><i class="wi"></i>Météo</a>
+  <a class="nav-link" href="modal" data-toggle="modal" data-target="#exampleModalCenter"><i class="wi"></i>Météo à Courchevel</a>
   <button class="navbar-toggler ml-auto mt-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -25,18 +25,17 @@
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="tricksLink">Tricks</a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tricksLink">
           <a href="{{ path('trick_new')}}" class="dropdown-item">Add Trick</a>
-
           <a href="{{ path('app_get_trick')}}" class="dropdown-item">{{app.user.pseudo}} Tricks</a>
           <a href="{{ path('trick_index')}}" class="dropdown-item">All Tricks</a>
           <div class="dropdown-divider"></div>
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
             aria-expanded="false">catégories</a>
           <div class="dropdown-menu">
-            <a class="nav-link" href="{{ path('trick_category', {'category': 'Regular'}) }}">Regular</a>
-            <a class="nav-link" href="{{ path('trick_category', {'category': 'Rotations'}) }}">Rotations</a>
-            <a class="nav-link" href="{{ path('trick_category', {'category': 'Straight Airs'}) }}">Straight Airs</a>
-            <a class="nav-link" href="{{ path('trick_category', {'category': 'Old School'}) }}">Old School</a>
-            <a class="nav-link" href="{{ path('trick_category', {'category': 'For absolute beginner'}) }}">For absolute
+            <a class="nav-link" href="{{ path('trick_category', {'slug': 'regular'})}}">Regular</a>
+            <a class="nav-link" href="{{ path('trick_category', {'slug': 'rotations'}) }}">Rotations</a>
+            <a class="nav-link" href="{{ path('trick_category', {'slug': 'straight-airs'}) }}">Straight Airs</a>
+            <a class="nav-link" href="{{ path('trick_category', {'slug': 'old-school'}) }}">Old School</a>
+            <a class="nav-link" href="{{ path('trick_category', {'slug': 'for-absolute-beginner'}) }}">For absolute
               beginner</a>
           </div>
         </div>

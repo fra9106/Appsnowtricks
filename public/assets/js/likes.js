@@ -11,7 +11,7 @@ function onClickBtnLike(e) {
 
                 const likes = data.likes;
                 spanCount.textContent = likes;//nombre de likes
-                console.log(likes);
+
                 if (icon.classList.contains('fas')) {
                     icon.classList.replace('fas', 'far');
                 } else {

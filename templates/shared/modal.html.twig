@@ -15,13 +15,13 @@
             <div class="container">
               <div id=cont align="center"><br><br>
                 <h1>Météo du jour</h1>
-                <form>
+                <!--<form>
                   <div class="form-group mb-3">
                     <div class="col-12 col-sm-4 my-3">
                       <input type="text" class="form-control mb-3" id="inputCity" placeholder="Tapez une ville" </div>
                       <button class="btn btn-success btn-roun-shadow btn-block">Rechercher</button>
                     </div>
-                </form>
+                </form>-->
                 <div class="cart bg-white col-lg-6 col-sm-12 d-flex justify-content-center rounded">
                   <div class="box-container"><br>
                     <h2 class="mb-3" id="city"></h2>
@@ -45,3 +45,6 @@
     </div>
   </div>
 </div>
+{% block javascripts %}
+<script src="{{ asset('assets/js/meteo.js') }}"></script>
+{% endblock %}

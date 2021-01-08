@@ -53,92 +53,88 @@ class AppFixtures extends Fixture
         
         $category1 = new Category();
         $category1->setCategory("Regular");
+        
         $manager->persist($category1);
         
         $category2 = new Category();
         $category2->setCategory("Rotations");
+        
         $manager->persist($category2);
         
         $category3 = new Category();
         $category3->setCategory("Straight Airs");
+        
         $manager->persist($category3);
         
         $category4 = new Category();
         $category4->setCategory("Old School");
+        
         $manager->persist($category4);
         
         $category5 = new Category();
         $category5->setCategory("For absolute beginner");
+        
         $manager->persist($category5);
         
         $video1 = new Video();
         $video1
         ->setName("5 Skills for Beginner Snowboard Tricks")
-        ->setUrl("https://www.youtube.com/embed/8AWdZKMTG3U")
-        ;
+        ->setUrl("https://www.youtube.com/embed/8AWdZKMTG3U");
         $manager->persist($video1);
         
         $video2 = new Video();
         $video2
         ->setName("10 Snowboard Butter Tricks to Learn First")
-        ->setUrl("https://www.youtube.com/embed/G9qlTInKbNE")
-        ;
+        ->setUrl("https://www.youtube.com/embed/G9qlTInKbNE");
         $manager->persist($video2);
         
         $video3 = new Video();
         $video3
         ->setName("4 Snowboarding Moves That Will Change Your Life")
-        ->setUrl("https://www.youtube.com/embed/CflYbNXZU3Q")
-        ;
+        ->setUrl("https://www.youtube.com/embed/CflYbNXZU3Q");
         $manager->persist($video3);
         
         $video4 = new Video();
         $video4
         ->setName("Extreme Snowboarding")
-        ->setUrl("https://www.youtube.com/embed/NKHYEOAbFyM")
-        ;
+        ->setUrl("https://www.youtube.com/embed/NKHYEOAbFyM");
         $manager->persist($video4);
         
         $video5 = new Video();
         $video5
         ->setName("How To Nose & Tail Press On A Snowboard (Regular)")
-        ->setUrl("https://www.youtube.com/embed/P72Q5XGMyDo")
-        ;
+        ->setUrl("https://www.youtube.com/embed/P72Q5XGMyDo");
         $manager->persist($video5);
         
         $video6 = new Video();
         $video6
         ->setName("Learn How To Snowboard: Straight Air")
-        ->setUrl("https://www.youtube.com/embed/9-FUTXxvvpQ")
-        ;
+        ->setUrl("https://www.youtube.com/embed/9-FUTXxvvpQ");
         $manager->persist($video6);
         
         $video7 = new Video();
         $video7
         ->setName("How To Counter Rotated 360 On A Snowboard")
-        ->setUrl("https://www.youtube.com/embed/RgS3fpYmd6U")
-        ;
+        ->setUrl("https://www.youtube.com/embed/RgS3fpYmd6U");
         $manager->persist($video7);
         
         $video8 = new Video();
         $video8
         ->setName("Ski Tricks || Straight Airs")
-        ->setUrl("https://www.youtube.com/embed/V_7lXq5gRho")
-        ;
+        ->setUrl("https://www.youtube.com/embed/V_7lXq5gRho");
         $manager->persist($video8);
         
         $video9 = new Video();
         $video9
         ->setName("10 WEIRD SNOWBOARD TRICKS (Old School)")
-        ->setUrl("https://www.youtube.com/embed/Zc8Gu8FwZkQ")
-        ;
+        ->setUrl("https://www.youtube.com/embed/Zc8Gu8FwZkQ");
         $manager->persist($video9);
         
         $video10 = new Video();
         $video10
         ->setName("Snowboard Trick Tips: Basic Airs")
-        ->setUrl("https://www.youtube.com/embed/RgS3fpYmd6U")
-        ;
+        ->setUrl("https://www.youtube.com/embed/RgS3fpYmd6U");
+        
         $manager->persist($video10);
         
         $image1 = new Image;

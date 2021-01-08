@@ -48,21 +48,21 @@ class TrickController extends AbstractController
     }
 
     /**
-     * @Route("/{category}", name="trick_category")
+     * @Route("/{slug}", name="trick_category", priority=-1)
      */
-    public function category($category, CategoryRepository $repo): Response
+    public function category($slug, CategoryRepository $repo): Response
     {
-        $cat = $repo->findOneBy([
-            'category' => $category
+        $category = $repo->findOneBy([
+            'slug' => $slug
         ]);
 
-        if(!$cat){
+        if(!$category){
             throw $this->createNotFoundException("Cette catégorie n'existe pas !");
         }
 
         return $this->render('trick/category.html.twig', [
-            'category' => $category,
-            'cat' => $cat
+            'slug' => $slug,
+            'category' => $category
         ]);
     }
 

@@ -5,9 +5,10 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+use App\Service\Slug;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Category
 {
@@ -22,6 +23,11 @@ class Category
      * @ORM\Column(type="string", length=50)
      */
     private $category;
+
+    /**
+     * @ORM\Column(type="string", length=70)
+     */
+    private $slug;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Trick", mappedBy="category")
@@ -77,6 +83,35 @@ class Category
                 $trick->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * slug initialize
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     * 
+     * @return void
+     */
+    public function initializeSlug()
+    {
+        if(empty($this->slug)) {
+            $slugify = new Slug();
+            $this->slug = $slugify->slugify($this->category);
+        }
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+    
+    public function setSlug($slug): self
+    {
+        $slugify = new Slug();
+        $this->slug = $slugify->slugify($slug);
 
         return $this;
     }
