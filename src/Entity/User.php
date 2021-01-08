@@ -59,7 +59,7 @@ class User implements UserInterface
      */
     private $password;
     /**
-     * @Assert\NotBlank
+     * 
      * @Assert\EqualTo(propertyPath="password") 
      */
     public $confirm_password;

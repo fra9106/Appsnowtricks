@@ -40,7 +40,7 @@ window.onload = () => {
         }
         for (let i = 0; i < modalWrapper.length; i++) {
             modalWrapper[i].insertAdjacentHTML('afterbegin', btn);
-            modalWrapper[i].className = 'modal-wrapper js-modal-stop';
+            modalWrapper[i].className = 'modal-wrapper js-modal-stop-propagation';
         }
         for (let i = 0; i < modalElem.length; i++) {
             modalElem[i].setAttribute("href", "#modal-video-" + i);

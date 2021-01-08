@@ -46,11 +46,11 @@ let apiCall = function (city) {
         )
         .catch((err) => console.log('Erreur : ' + err));
 };
-document.querySelector('form').addEventListener('submit', function (e) {
+/*document.querySelector('form').addEventListener('submit', function (e) {
     e.preventDefault();
     let ville = document.querySelector('#inputCity').value;
 
     apiCall(ville);
-});
+});*/
 
 apiCall('Courchevel');

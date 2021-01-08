@@ -47,4 +47,24 @@ class TrickRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    ///**
+    // * 
+    // *
+    // * @return array
+    // */
+    /*
+    public function findAllTricks(): array
+    {
+        return $this->createQueryBuilder('t')
+            ->addSelect("i")
+            ->join("t.images", "i")
+            ->addSelect("l")
+            ->join("t.likes", "l")
+            ->orderBy('t.id', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }*/
+
 }

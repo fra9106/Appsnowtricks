@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Catégorie : {{ cat.category }} {% endblock %}
+{% block title %}Catégorie : {{ category.slug }} {% endblock %}
 
 {% block body %}
 {{ include('home/_home.html.twig') }}
 <div class="margout row">
     <div class="col-12 mb-4"><br><br>
-        <h1 class="title text-center">Catégorie : {{cat.category }}</h1><br><br>
+        <h1 class="title text-center">Catégorie : {{category.slug }}</h1><br><br>
     </div>
-    {% for trick in cat.tricks %}
+    {% for trick in category.tricks %}
     <div class="col-lg-2 col-sm-12 col-md-6 my-3 m-4  ">
         <div class="card shadow">
             <a href="{{ path('comment_new', {'slug': trick.slug}) }}">

@@ -22,10 +22,6 @@
     {% else %}
     <div class="edit-image-poster-icons">
         <img class="image-trick image-trick-poster rounded mx-2" src="{{ asset('assets/img_default/460.jpg') }}" alt="Image">
-        <div class="bt-edit-poster">
-            <a href="" type="button" class="btn-delete-image btn btn-danger fas fa-trash-alt"></a>
-            <a href="" class="js-modal-image btn btn-primary fas fa-pencil-alt"></a>
-        </div>
     </div>
     {% endfor %}
     {% endif %}
@@ -104,17 +100,17 @@
 <div class="modal-none" id="block_{{id}}">
     <div class="edit-video-form-entry">
         <div class="row">
-            <div class="col-10">
+            <div class="col-12">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12">
                         {{ form_widget(form.url) }}
-                    </div>
-                    <div class="col">
+                    </div><br><br>
+                    <div class="col-12">
                         {{ form_widget(form.name) }}
                     </div>
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-12">
                 <button type="button" class="btn-delete-video btn btn-danger fas fa-trash-alt" data-action="delete" data-target="#block_{{id}}"></button>
             </div>
         </div>
