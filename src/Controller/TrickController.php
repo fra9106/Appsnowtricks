@@ -43,8 +43,8 @@ class TrickController extends AbstractController
     public function index(TrickRepository $trickRepository): Response
     {
         return $this->render('trick/index.html.twig', [
-            'tricks' => $trickRepository->findBy([], ['creation_date' => 'DESC'])
-        ]);
+            'tricks' => $trickRepository->findAllTricks()
+            ]);
     }
 
     /**
