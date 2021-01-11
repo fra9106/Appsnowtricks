@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
-use App\Entity\Image;
 use App\Form\AccountType;
 use App\Repository\TrickRepository;
 use App\Repository\CommentRepository;
@@ -56,13 +54,10 @@ class UserController extends AbstractController
      */
     public function getTrick(TrickRepository $repo): response
     {
-        $images = new Image;
         $user = $this->getUser();
-        $tricks = $repo->findAll($user);
+        $repo->findAllTricksUser($user,['creation_date' => 'DESC'] );
         return $this->render('trick/trickUser.html.twig', [
-            'user' => $user,
-            'tricks' => $tricks,
-            'images' => $images
+            'user' => $user
         ]);
     }
 
@@ -91,7 +86,6 @@ class UserController extends AbstractController
         $user = $this->getUser();
         return $this->render('user/profile.html.twig', [
             'user' => $user
-
         ]);
     }
 
