@@ -23,7 +23,7 @@ class TrickLike
     private $trick;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="trickLikes")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="likes")
      */
     private $user;
 
